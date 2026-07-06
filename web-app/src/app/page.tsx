@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -24,9 +25,9 @@ export default function Home() {
               <h3 className="text-h3 text-secondary mb-10 max-w-xl">
                 La salud visual influye en mucho más que lo que ves. Impacta en tu bienestar, tu rendimiento y tu calidad de vida. Por eso ofrecemos una atención oftalmológica integral, personalizada y respaldada por tecnología de última generación..
               </h3>
-              <button className="bg-primary-container text-on-primary px-8 py-5 rounded-lg text-body-lg font-semibold hover:bg-secondary transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/10">
-                Agendá tu consulta de evaluación integral
-              </button>
+              <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-container text-on-primary px-8 py-5 rounded-lg text-body-lg font-semibold hover:bg-secondary transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/10">
+                AGENDÁ UNA CONSULTA
+              </a>
             </div>
           </div>
         </section>
@@ -181,9 +182,9 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col items-center gap-12">
-              <button className="px-10 py-4 border border-secondary text-secondary rounded-lg text-button-primary hover:bg-secondary hover:text-white transition-all uppercase">
-                Ver todos los artículos
-              </button>
+              <Link href="/recursos" className="inline-block px-10 py-4 border border-secondary text-secondary rounded-lg text-button-primary hover:bg-secondary hover:text-white transition-all uppercase">
+                Ver todos los recursos
+              </Link>
               <blockquote className="max-w-2xl text-center text-on-surface-variant italic text-blockquote opacity-80">
                 Creemos que un paciente informado toma mejores decisiones sobre su salud. Por eso compartimos contenidos desarrollados con el mismo criterio científico que aplicamos en cada consulta.
               </blockquote>
@@ -201,9 +202,9 @@ export default function Home() {
               <p className="text-h3 text-white/80 mb-12">
                 Agendá una consulta y realizá una evaluación integral para conocer el estado de tu visión y recibir un diagnóstico personalizado.
               </p>
-              <button className="bg-white text-petroleum px-12 py-5 rounded-lg text-body-lg font-bold hover:bg-secondary-fixed transition-all hover:scale-105 active:scale-95 duration-300">
-                Agendá tu turno
-              </button>
+              <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-petroleum px-12 py-5 rounded-lg text-body-lg font-bold hover:bg-secondary-fixed transition-all hover:scale-105 active:scale-95 duration-300">
+                AGENDÁ UNA CONSULTA
+              </a>
             </div>
           </div>
         </section>

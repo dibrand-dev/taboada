@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <h2 className="font-headline-md text-headline-md text-primary mb-12 text-center">Continúa leyendo</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
                 {relatedPosts.map((relatedPost: any) => (
-                  <Link key={relatedPost.id} href={`/conocimiento/${relatedPost.slug}`} className="group cursor-pointer">
+                  <Link key={relatedPost.id} href={`/recursos/${relatedPost.slug}`} className="group cursor-pointer">
                     <div className="aspect-video overflow-hidden mb-6 rounded-lg relative">
                       {relatedPost.cover_image_url ? (
                          <Image className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt={relatedPost.title} src={relatedPost.cover_image_url} fill />
@@ -152,9 +152,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <p className="font-body-lg text-white/80 mb-10 max-w-xl mx-auto">
               Agenda hoy una consulta integral y descubre cómo la tecnología médica de vanguardia puede transformar tu día a día.
             </p>
-            <button className="bg-white text-[#115565] px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-[#b1ecff] transition-all transform hover:scale-105 shadow-xl">
-              Agendar consulta
-            </button>
+            <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-[#115565] px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-[#b1ecff] transition-all transform hover:scale-105 shadow-xl">
+              AGENDÁ UNA CONSULTA
+            </a>
           </div>
         </section>
       </main>

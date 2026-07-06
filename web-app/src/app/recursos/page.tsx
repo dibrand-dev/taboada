@@ -97,7 +97,7 @@ export default async function Conocimiento() {
                   if (isFeatured) {
                     return (
                       <div key={post.id} className="md:col-span-12 mb-16 group transition-soft opacity-100 translate-y-0">
-                        <Link className="grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest overflow-hidden border border-outline-variant/10 hover:border-secondary/20 transition-soft bg-white" href={`/conocimiento/${post.slug}`}>
+                        <Link className="grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest overflow-hidden border border-outline-variant/10 hover:border-secondary/20 transition-soft bg-white" href={`/recursos/${post.slug}`}>
                           <div className="h-[400px] md:h-auto relative overflow-hidden">
                             {post.cover_image_url ? (
                               <Image className="object-cover group-hover:scale-105 transition-transform duration-1000" alt={post.title} src={post.cover_image_url} fill sizes="(max-width: 768px) 100vw, 50vw" />
@@ -130,7 +130,7 @@ export default async function Conocimiento() {
 
                   return (
                     <div key={post.id} className="md:col-span-4 group transition-soft opacity-100 translate-y-0">
-                      <Link className="flex flex-col h-full bg-white transition-soft border-b border-transparent hover:border-secondary pb-8" href={`/conocimiento/${post.slug}`}>
+                      <Link className="flex flex-col h-full bg-white transition-soft border-b border-transparent hover:border-secondary pb-8" href={`/recursos/${post.slug}`}>
                         <div className="aspect-[4/3] overflow-hidden mb-8 relative">
                           {post.cover_image_url ? (
                             <Image className="object-cover group-hover:scale-105 transition-transform duration-700" alt={post.title} src={post.cover_image_url} fill sizes="(max-width: 768px) 100vw, 33vw" />
@@ -185,8 +185,8 @@ export default async function Conocimiento() {
               <p className="font-body-lg text-body-lg text-on-surface-variant mb-12">
                 La información es el primer paso, pero nada reemplaza un diagnóstico médico preciso. Agendá una consulta para evaluar tu salud visual.
               </p>
-              <a className="inline-flex items-center gap-4 bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps hover:bg-primary-container transition-all group transition-soft opacity-100 translate-y-0" href="#">
-                AGENDAR CONSULTA
+              <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps hover:bg-primary-container transition-all group transition-soft opacity-100 translate-y-0">
+                AGENDÁ UNA CONSULTA
                 <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">calendar_month</span>
               </a>
             </div>
