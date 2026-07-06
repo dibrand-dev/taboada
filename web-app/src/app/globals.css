@@ -2,18 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-marcellus: var(--font-marcellus), serif;
-  --font-inter: var(--font-inter), sans-serif;
-  --font-allround: var(--font-plus-jakarta-sans), sans-serif;
-  
-  --font-body-md: var(--font-plus-jakarta-sans);
-  --font-headline-lg: var(--font-noto-serif);
-  --font-body-lg: var(--font-plus-jakarta-sans);
-  --font-display-lg: var(--font-noto-serif);
-  --font-label-caps: var(--font-plus-jakarta-sans);
-  --font-subtitle-lg: var(--font-plus-jakarta-sans);
-  --font-headline-md: var(--font-noto-serif);
-  --font-display-lg-mobile: var(--font-noto-serif);
+  --font-heading: var(--font-tenor), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
   
   --color-primary: #06162c;
   --color-secondary: #296676;
@@ -141,9 +131,8 @@ body {
 .text-label-caps { text-transform: uppercase; }
 .backdrop-blur-nav, .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
-h1, h2, blockquote, .font-marcellus { font-family: var(--font-marcellus), serif; }
-h3, h4, h5, h6, p, li, span:not(.allround):not(.material-symbols-outlined), div:not(.allround) { font-family: var(--font-inter), sans-serif; }
-.nav-link, button, .allround { font-family: var(--font-plus-jakarta-sans), sans-serif; }
+h1, h2, h3, blockquote { font-family: var(--font-heading); }
+p, button, span:not(.material-symbols-outlined), li, div { font-family: var(--font-body); }
 
 .transition-soft { transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
 .hide-scrollbar::-webkit-scrollbar { display: none; }

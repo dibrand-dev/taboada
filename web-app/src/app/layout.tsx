@@ -1,28 +1,16 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Plus_Jakarta_Sans, Marcellus, Inter } from "next/font/google";
+import { Tenor_Sans, Inter } from "next/font/google";
 import "./globals.css";
 
-const notoSerif = Noto_Serif({ 
-  subsets: ["latin"], 
-  weight: ["400", "700"], 
-  variable: "--font-noto-serif" 
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({ 
-  subsets: ["latin"], 
-  weight: ["400", "500", "600", "700"], 
-  variable: "--font-plus-jakarta-sans" 
-});
-
-const marcellus = Marcellus({ 
+const tenorSans = Tenor_Sans({ 
   subsets: ["latin"], 
   weight: "400", 
-  variable: "--font-marcellus" 
+  variable: "--font-tenor" 
 });
 
 const inter = Inter({ 
   subsets: ["latin"], 
-  weight: ["400", "600", "700"], 
+  weight: ["400", "500", "600", "700"], 
   variable: "--font-inter" 
 });
 
@@ -39,7 +27,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${notoSerif.variable} ${plusJakartaSans.variable} ${marcellus.variable} ${inter.variable} h-full antialiased scroll-smooth`}
+      className={`${tenorSans.variable} ${inter.variable} h-full antialiased scroll-smooth`}
     >
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />

@@ -50,44 +50,44 @@ colors:
   surface-variant: '#dbe3f3'
 typography:
   display-lg:
-    fontFamily: Noto Serif
+    fontFamily: Tenor Sans
     fontSize: 64px
     fontWeight: '400'
     lineHeight: '1.1'
     letterSpacing: -0.02em
   display-lg-mobile:
-    fontFamily: Noto Serif
+    fontFamily: Tenor Sans
     fontSize: 40px
     fontWeight: '400'
     lineHeight: '1.2'
   headline-lg:
-    fontFamily: Noto Serif
+    fontFamily: Tenor Sans
     fontSize: 40px
     fontWeight: '400'
     lineHeight: '1.2'
   headline-md:
-    fontFamily: Noto Serif
+    fontFamily: Tenor Sans
     fontSize: 32px
     fontWeight: '400'
     lineHeight: '1.3'
   subtitle-lg:
-    fontFamily: Plus Jakarta Sans
+    fontFamily: Inter
     fontSize: 20px
     fontWeight: '600'
     lineHeight: '1.5'
     letterSpacing: 0.02em
   body-lg:
-    fontFamily: Plus Jakarta Sans
+    fontFamily: Inter
     fontSize: 18px
     fontWeight: '400'
     lineHeight: '1.6'
   body-md:
-    fontFamily: Plus Jakarta Sans
+    fontFamily: Inter
     fontSize: 16px
     fontWeight: '400'
     lineHeight: '1.6'
   label-caps:
-    fontFamily: Plus Jakarta Sans
+    fontFamily: Inter
     fontSize: 12px
     fontWeight: '700'
     lineHeight: '1'
@@ -126,10 +126,10 @@ The palette is anchored in Deep Blue and Petroleum Green to establish a sense of
 
 ## Typography
 
-The typography system uses **Noto Serif** for primary headings to convey an editorial, literary authority. **Plus Jakarta Sans** handles subtitles and body copy to ensure modern readability and a friendly, open tone.
+The typography system uses **Tenor Sans** for primary headings to convey an elegant, editorial, and sophisticated authority. **Inter** handles subtitles and body copy to ensure modern readability, structural integrity, and a friendly, open tone.
 
 - **Headings:** Use generous line heights. Display styles should use slight negative letter spacing for a tighter, high-fashion look.
-- **Subtitles:** Utilize geometric weight to contrast against the serif headers.
+- **Subtitles:** Utilize geometric weight (Inter SemiBold/Bold) to contrast against the elegant sans-serif headers.
 - **Body:** Prioritize legibility with ample line spacing (1.6x) to maintain the "airy" aesthetic.
 
 ## Layout & Spacing

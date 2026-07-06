@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
+import NewsletterForm from '@/components/NewsletterForm';
 
 export const dynamic = 'force-dynamic';
 
@@ -171,16 +172,7 @@ export default async function Conocimiento() {
                   Unite a nuestra comunidad editorial y recibí una vez al mes las novedades más importantes en oftalmología y bienestar.
                 </p>
               </div>
-              <div className="flex flex-col gap-6">
-                <div className="relative">
-                  <label className="font-label-caps text-[10px] uppercase tracking-widest mb-2 block opacity-60 text-primary">CORREO ELECTRÓNICO</label>
-                  <div className="flex gap-4">
-                    <input className="flex-1 bg-transparent border-b border-primary/30 focus:border-primary focus:ring-0 py-3 font-body-md placeholder:text-primary/40 text-primary outline-none" placeholder="tu@email.com" type="email" />
-                    <button className="bg-secondary px-8 py-3 font-label-caps text-label-caps hover:bg-secondary-fixed transition-all duration-300 text-white cursor-pointer">SUSCRIBIRME</button>
-                  </div>
-                </div>
-                <p className="font-label-caps text-[10px] opacity-40 text-primary">Privacidad garantizada. Sin spam, solo conocimiento.</p>
-              </div>
+              <NewsletterForm />
             </div>
           </div>
         </section>

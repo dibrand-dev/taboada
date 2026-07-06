@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import Image from 'next/image'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -32,68 +33,88 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Acceso al Panel
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Dra. Cecilia Taboada
-          </p>
+    <div className="flex min-h-screen bg-white">
+      {/* Left Panel - Image Area */}
+      <div className="hidden lg:flex lg:w-1/2 p-4">
+        <div className="h-full w-full relative rounded-3xl overflow-hidden shadow-sm">
+          <Image
+            src="/login-bg.jpg"
+            alt="Dra. Taboada"
+            fill
+            className="object-cover object-top"
+            priority
+          />
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
-          <div className="-space-y-px rounded-md shadow-sm">
+      </div>
+
+      {/* Right Panel - Form Area */}
+      <div className="flex w-full lg:w-1/2 flex-col justify-center px-8 sm:px-12 lg:px-24">
+        <div className="w-full max-w-md mx-auto">
+          {/* Main Title & Subtitle */}
+          <h1 className="text-4xl font-bold text-slate-900 tracking-tight">
+            Bienvenida, Dra. Taboada
+          </h1>
+          <p className="mt-4 text-slate-500 mb-10 text-sm leading-relaxed">
+            Administre su contenido, notas médicas y suscriptores de forma segura y centralizada.
+          </p>
+
+          <form className="space-y-6" onSubmit={handleLogin}>
+            {/* Email Field */}
             <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email
+              <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+                Correo Electrónico
               </label>
               <input
-                id="email-address"
-                name="email"
+                id="email"
                 type="email"
-                autoComplete="email"
-                required
-                className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+                className="block w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors"
+                placeholder="ejemplo@correo.com"
               />
             </div>
+
+            {/* Password Field */}
             <div>
-              <label htmlFor="password" className="sr-only">
+              <label htmlFor="password" className="block text-sm font-medium text-slate-700 mb-2">
                 Contraseña
               </label>
               <input
                 id="password"
-                name="password"
                 type="password"
-                autoComplete="current-password"
-                required
-                className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                placeholder="Contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
+                className="block w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm text-slate-900 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 transition-colors"
+                placeholder="••••••••"
               />
+              <div className="flex justify-end mt-3">
+                <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500 transition-colors">
+                  ¿Olvidó su contraseña?
+                </a>
+              </div>
             </div>
-          </div>
 
-          {error && (
-            <div className="text-sm text-red-600 bg-red-50 p-3 rounded-md">
-              {error}
+            {/* Error Message */}
+            {error && (
+              <div className="rounded-xl bg-red-50 p-4 text-sm text-red-600 border border-red-100 flex items-center">
+                {error}
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <div className="pt-2">
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full flex justify-center items-center rounded-xl bg-indigo-600 px-4 py-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Ingresando...' : 'Ingresar al panel'}
+              </button>
             </div>
-          )}
-
-          <div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="group relative flex w-full justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 disabled:opacity-50"
-            >
-              {loading ? 'Ingresando...' : 'Ingresar'}
-            </button>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   )

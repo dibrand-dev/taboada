@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -33,8 +34,14 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 pt-8 border-t border-white/10 text-center">
-          <p className="text-white/40 font-allround text-badge uppercase">© 2024 Dra. María Cecilia Taboada. Todos los derechos reservados.</p>
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-white/40 font-allround text-badge uppercase">© {new Date().getFullYear()} Dra. María Cecilia Taboada. Todos los derechos reservados.</p>
+          <div className="flex items-center gap-3">
+            <span className="text-white/40 font-allround text-badge uppercase">Desarrollado por</span>
+            <a href="https://www.dibrand.co/" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity duration-200">
+              <Image src="/dibrand-logo.png" alt="Dibrand" width={100} height={24} className="h-6 w-auto" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
