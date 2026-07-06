@@ -13,21 +13,21 @@ export default function Header() {
         </Link>
       </div>
       <div className="hidden md:flex items-center gap-8">
-        <Link href="/#servicios" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 font-allround text-nav-item">
+        <Link href="/#servicios" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
           Servicios
         </Link>
-        <Link href="/#sobre-mi" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 font-allround text-nav-item">
+        <Link href="/#sobre-mi" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
           Sobre Mí
         </Link>
-        <Link href="/conocimiento" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 font-allround text-nav-item">
+        <Link href="/conocimiento" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
           Conocimiento
         </Link>
-        <Link href="/#contacto" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 font-allround text-nav-item">
+        <Link href="/#contacto" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
           Contacto
         </Link>
       </div>
       <div className="flex items-center gap-4">
-        <button className="hidden md:block px-6 py-2 border border-vision-blue rounded-lg font-allround text-button-primary text-primary hover:bg-vision-blue/5 transition-all active:scale-95 duration-200 uppercase">
+        <button className="hidden md:block px-6 py-2 border border-vision-blue rounded-lg text-button-primary text-primary hover:bg-vision-blue/5 transition-all active:scale-95 duration-200 uppercase">
           [ Agendá tu Turno ]
         </button>
         <button className="md:hidden text-primary">

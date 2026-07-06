@@ -131,8 +131,8 @@ body {
 .text-label-caps { text-transform: uppercase; }
 .backdrop-blur-nav, .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
-h1, h2, h3, blockquote { font-family: var(--font-heading); }
-p, button, span:not(.material-symbols-outlined), li, div { font-family: var(--font-body); }
+h1, h2, h3, blockquote { font-family: var(--font-tenor), sans-serif !important; }
+p, button, span:not(.material-symbols-outlined), li, div { font-family: var(--font-inter), sans-serif; }
 
 .transition-soft { transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
