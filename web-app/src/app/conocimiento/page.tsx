@@ -1,7 +1,29 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Link from 'next/link';
+import Image from 'next/image';
+import { createClient } from '@/lib/supabase/server';
 
-export default function Conocimiento() {
+export const dynamic = 'force-dynamic';
+
+export default async function Conocimiento() {
+  const supabase = await createClient()
+
+  const { data: posts, error } = await supabase
+    .from('posts')
+    .select(`
+      *,
+      categories ( id, name, slug ),
+      authors ( id, first_name, last_name, avatar_url )
+    `)
+    .eq('published', true)
+    .order('published_at', { ascending: false, nullsFirst: false })
+    .order('created_at', { ascending: false })
+
+  if (error) {
+    console.error('Error fetching public posts:', error)
+  }
+
   return (
     <>
       <Header />
@@ -47,12 +69,10 @@ export default function Conocimiento() {
         <section className="sticky top-[73px] z-40 bg-surface-bright/95 backdrop-blur-sm border-b border-outline-variant/10 py-8">
           <div className="px-margin-safe max-w-container-max mx-auto">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-              {/* Search Input */}
               <div className="relative flex-1 max-w-md group transition-soft opacity-100 translate-y-0">
                 <span className="absolute left-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors">search</span>
                 <input className="w-full bg-transparent border-0 border-b border-outline/30 focus:border-secondary focus:ring-0 pl-8 pb-3 font-body-md text-body-md placeholder:text-outline/60 transition-all outline-none" placeholder="Buscar un artículo..." type="text" />
               </div>
-              {/* Filter Chips */}
               <div className="flex overflow-x-auto gap-3 hide-scrollbar pb-2 md:pb-0">
                 <button className="whitespace-nowrap px-6 py-2 bg-primary text-on-primary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Todos</button>
                 <button className="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-secondary/10 hover:text-secondary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Prevención</button>
@@ -69,87 +89,73 @@ export default function Conocimiento() {
         <section className="py-section-gap-mobile md:py-section-gap-desktop">
           <div className="px-margin-safe max-w-container-max mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-              {/* Featured Post (Article 1) */}
-              <div className="md:col-span-12 mb-16 group transition-soft opacity-100 translate-y-0">
-                <a className="grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest overflow-hidden border border-outline-variant/10 hover:border-secondary/20 transition-soft bg-white" href="/articulo">
-                  <div className="h-[400px] md:h-auto relative overflow-hidden">
-                    <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" alt="Article image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNu5Oa5tj9njgT2BqBafktiOyGKtuUnrvsuU0u817RsG-3AIMYkGrbMsr1OMMoSeUDZHTIzMYfwV8MWKQTgOj4U2rmGIZFigjpGxBo8lNhKhtV8W4K6mnaHoneBL6YHjVsxO4F-Zd0lV5jY5uMXRm5O-oLWXwHTuhG4yttAWJ9ki7kqhPyX8_COwzvN5JYtPdk2E1D9ITt_vckBM71LI8NbIo4Hgp_1seIcoRCfM-GEw7_HVgv4Xmx" />
-                    <div className="absolute top-6 left-6">
-                      <span className="bg-secondary text-white px-4 py-1 font-label-caps text-[10px] tracking-widest uppercase">Destacado</span>
-                    </div>
-                  </div>
-                  <div className="p-8 md:p-16 flex flex-col justify-center">
-                    <div className="flex items-center gap-4 mb-6">
-                      <span className="font-label-caps text-label-caps text-secondary">TECNOLOGÍA</span>
-                      <span className="w-1 h-1 bg-outline rounded-full"></span>
-                      <span className="font-label-caps text-label-caps text-outline">8 MIN LECTURA</span>
-                    </div>
-                    <h3 className="font-headline-lg text-headline-lg text-primary mb-6 group-hover:text-secondary transition-colors">Cirugía Refractiva: El futuro de una visión sin límites</h3>
-                    <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 line-clamp-3">
-                      Exploramos los últimos avances en tecnología láser y cómo los nuevos procedimientos están redefiniendo la calidad de vida de miles de pacientes en todo el mundo. Una guía completa para entender si eres candidato.
-                    </p>
-                    <div className="flex items-center text-primary font-label-caps text-label-caps gap-2 group/btn">
-                      <span>Leer artículo</span>
-                      <span className="material-symbols-outlined group-hover/btn:translate-x-2 transition-transform">arrow_forward</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              {posts && posts.length > 0 ? (
+                posts.map((post: any, index: number) => {
+                  const isFeatured = index === 0;
+                  
+                  if (isFeatured) {
+                    return (
+                      <div key={post.id} className="md:col-span-12 mb-16 group transition-soft opacity-100 translate-y-0">
+                        <Link className="grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest overflow-hidden border border-outline-variant/10 hover:border-secondary/20 transition-soft bg-white" href={`/conocimiento/${post.slug}`}>
+                          <div className="h-[400px] md:h-auto relative overflow-hidden">
+                            {post.cover_image_url ? (
+                              <Image className="object-cover group-hover:scale-105 transition-transform duration-1000" alt={post.title} src={post.cover_image_url} fill sizes="(max-width: 768px) 100vw, 50vw" />
+                            ) : (
+                              <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-1000 absolute inset-0">Sin imagen</div>
+                            )}
+                            <div className="absolute top-6 left-6">
+                              <span className="bg-secondary text-white px-4 py-1 font-label-caps text-[10px] tracking-widest uppercase">Destacado</span>
+                            </div>
+                          </div>
+                          <div className="p-8 md:p-16 flex flex-col justify-center">
+                            <div className="flex items-center gap-4 mb-6">
+                              <span className="font-label-caps text-label-caps text-secondary uppercase">{post.categories?.name || 'General'}</span>
+                              <span className="w-1 h-1 bg-outline rounded-full"></span>
+                              <span className="font-label-caps text-label-caps text-outline uppercase">{post.reading_time_minutes || 5} MIN LECTURA</span>
+                            </div>
+                            <h3 className="font-headline-lg text-headline-lg text-primary mb-6 group-hover:text-secondary transition-colors line-clamp-2">{post.title}</h3>
+                            <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 line-clamp-3">
+                              {post.summary}
+                            </p>
+                            <div className="flex items-center text-primary font-label-caps text-label-caps gap-2 group/btn">
+                              <span>Leer artículo</span>
+                              <span className="material-symbols-outlined group-hover/btn:translate-x-2 transition-transform">arrow_forward</span>
+                            </div>
+                          </div>
+                        </Link>
+                      </div>
+                    )
+                  }
 
-              {/* Regular Posts */}
-              <div className="md:col-span-4 group transition-soft opacity-100 translate-y-0">
-                <a className="flex flex-col h-full bg-white transition-soft border-b border-transparent hover:border-secondary pb-8" href="/articulo">
-                  <div className="aspect-[4/3] overflow-hidden mb-8">
-                    <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Article image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoPDmtPxDqacQbbRVa0JCKt_CBrKliwxqXt85rRiiXVUd2w7W8RdFhuQcNjw7j2Eg4CiwwGvlIdYBxpLsr9jTtKFKPxZuvNsrdPDOI7g1zY6uytBLaaXqh8yQdp7hCyRBUJ93zwo447gRiU8W3EA36S9IDChaFaPNnUUH3kUBq7WlGmiTbwmNLDORZ_3DWv95PGm1dUvZsy5FnDCntLRW8fZSUwVMaoeJByFKrvJs10G6jgdnsTrJ_" />
-                  </div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="font-label-caps text-[10px] text-secondary tracking-widest">PANTALLAS</span>
-                    <span className="text-outline">•</span>
-                    <span className="font-label-caps text-[10px] text-outline tracking-widest">5 MIN</span>
-                  </div>
-                  <h4 className="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Fatiga Visual Digital: Guía de supervivencia</h4>
-                  <p className="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
-                    Cómo proteger tus ojos en la era del teletrabajo y el uso constante de dispositivos electrónicos. Consejos prácticos de ergonomía visual.
-                  </p>
-                  <span className="mt-auto font-label-caps text-label-caps text-outline flex items-center gap-2">LEER MÁS <span className="material-symbols-outlined text-sm">north_east</span></span>
-                </a>
-              </div>
-
-              <div className="md:col-span-4 group transition-soft opacity-100 translate-y-0">
-                <a className="flex flex-col h-full bg-white transition-soft border-b border-transparent hover:border-secondary pb-8" href="/articulo">
-                  <div className="aspect-[4/3] overflow-hidden mb-8">
-                    <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Article image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmcldrCo8TCmxbQGE-b9KYlYsBtckO541iWUuYUANmBbRGiiNJ0DxZ78GzCRrNC-xixZKixpy_MGtUoFZDUlt_LDDWEB0wxgeGsOol0rWH1Aluz_NMnKEoS6eX1dHi1t_Aq9eZ5GkmyKk_es533X_wevkIIC7o1ctKMoYpQUxu8PRYPrW3lV5JH3HjDB4cObDioT8-6xtuJb7ic6vw8yqRbj9PIKhVcQA9jPvP8YqYXBtG6ZX18pAG" />
-                  </div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="font-label-caps text-[10px] text-secondary tracking-widest">DESPUÉS DE LOS 40</span>
-                    <span className="text-outline">•</span>
-                    <span className="font-label-caps text-[10px] text-outline tracking-widest">12 MIN</span>
-                  </div>
-                  <h4 className="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">La Presbicia: Entendiendo el cambio natural</h4>
-                  <p className="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
-                    No es el fin de tu comodidad visual. Analizamos las opciones modernas, desde lentes multifocales hasta soluciones permanentes.
-                  </p>
-                  <span className="mt-auto font-label-caps text-label-caps text-outline flex items-center gap-2">LEER MÁS <span className="material-symbols-outlined text-sm">north_east</span></span>
-                </a>
-              </div>
-
-              <div className="md:col-span-4 group transition-soft opacity-100 translate-y-0">
-                <a className="flex flex-col h-full bg-white transition-soft border-b border-transparent hover:border-secondary pb-8" href="/articulo">
-                  <div className="aspect-[4/3] overflow-hidden mb-8">
-                    <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Article image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVioE3nU9xOH0BqVLDCQg63YvGh_tz943y9ui_VUu0QqBnRUjviFbFng807heJNoO2QQh2N1IhnA338T1DajlOwRQtEeR-BfYdpjRNwBD0-oCWRoR9XfBKLZQfmvDMUxF-OfgaL6ogOHfX4GNjqGYpiVYbEjDqkMBdIvgE0c7QKoq2p-oPoOrRWTWcVDRERZ4VBCgCPB_Y-Lsn9MNmiuqHG8MjTFME6NL1qE3rwSuKcr8TIKPEHjf4" />
-                  </div>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="font-label-caps text-[10px] text-secondary tracking-widest">SALUD VISUAL</span>
-                    <span className="text-outline">•</span>
-                    <span className="font-label-caps text-[10px] text-outline tracking-widest">6 MIN</span>
-                  </div>
-                  <h4 className="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors">Ojo Seco: Más que una molestia temporal</h4>
-                  <p className="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
-                    Por qué el uso de gotas no siempre es la solución y cómo abordar la causa raíz de este síndrome cada vez más común.
-                  </p>
-                  <span className="mt-auto font-label-caps text-label-caps text-outline flex items-center gap-2">LEER MÁS <span className="material-symbols-outlined text-sm">north_east</span></span>
-                </a>
-              </div>
+                  return (
+                    <div key={post.id} className="md:col-span-4 group transition-soft opacity-100 translate-y-0">
+                      <Link className="flex flex-col h-full bg-white transition-soft border-b border-transparent hover:border-secondary pb-8" href={`/conocimiento/${post.slug}`}>
+                        <div className="aspect-[4/3] overflow-hidden mb-8 relative">
+                          {post.cover_image_url ? (
+                            <Image className="object-cover group-hover:scale-105 transition-transform duration-700" alt={post.title} src={post.cover_image_url} fill sizes="(max-width: 768px) 100vw, 33vw" />
+                          ) : (
+                            <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-700 absolute inset-0">Sin imagen</div>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="font-label-caps text-[10px] text-secondary tracking-widest uppercase">{post.categories?.name || 'General'}</span>
+                          <span className="text-outline">•</span>
+                          <span className="font-label-caps text-[10px] text-outline tracking-widest uppercase">{post.reading_time_minutes || 5} MIN</span>
+                        </div>
+                        <h4 className="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors line-clamp-2">{post.title}</h4>
+                        <p className="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
+                          {post.summary}
+                        </p>
+                        <span className="mt-auto font-label-caps text-label-caps text-outline flex items-center gap-2">LEER MÁS <span className="material-symbols-outlined text-sm">north_east</span></span>
+                      </Link>
+                    </div>
+                  )
+                })
+              ) : (
+                <div className="col-span-full text-center py-24 text-slate-500 font-body-lg">
+                  Pronto publicaremos nuevos artículos.
+                </div>
+              )}
             </div>
           </div>
         </section>
