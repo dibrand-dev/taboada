@@ -53,7 +53,7 @@ export default function RootLayout({
             `,
           }}
         />
-        <script async crossOrigin="*" src="https://public.whaticket.com/widget/production/wtt-widget-default.js"></script>
+        <script async crossOrigin="anonymous" src="https://public.whaticket.com/widget/production/wtt-widget-default.js"></script>
       </head>
       <body className="min-h-full flex flex-col selection:bg-secondary-container selection:text-on-secondary-container bg-surface-container-lowest text-on-surface">
         <Header />
