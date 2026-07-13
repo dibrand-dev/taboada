@@ -1,11 +1,10 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import Link from "next/link";
 
 export default function Articulo() {
   return (
     <>
-      <Header />
+
       <main>
         {/* Section 1: Hero Editorial */}
         <header className="pt-24 pb-12 px-margin-safe bg-surface-bright">
@@ -185,7 +184,7 @@ export default function Articulo() {
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 }

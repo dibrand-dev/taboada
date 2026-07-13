@@ -2,8 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
+
 
 export const dynamic = 'force-dynamic'
 
@@ -37,7 +36,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <Header />
+
       <main>
         {/* Section 1: Hero Editorial */}
         <header className="pt-24 pb-12 px-margin-safe bg-surface-bright">
@@ -158,7 +157,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   )
 }

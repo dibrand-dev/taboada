@@ -1,5 +1,4 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
@@ -27,7 +26,7 @@ export default async function Conocimiento() {
 
   return (
     <>
-      <Header />
+
       <main style={{ backgroundColor: 'rgb(238, 241, 245)' }}>
         {/* 1. Hero */}
         <header className="relative w-full h-[819px] flex items-center overflow-hidden">
@@ -193,7 +192,7 @@ export default async function Conocimiento() {
           </div>
         </section>
       </main>
-      <Footer />
+
     </>
   );
 }
