@@ -3,6 +3,7 @@ import { Tenor_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const tenorSans = Tenor_Sans({ 
   subsets: ["latin"], 
@@ -61,6 +62,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );
