@@ -105,7 +105,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
               <div className="w-full md:w-1/2">
                 <div className="relative group">
-                  <img alt="Dra. María Cecilia Taboada" className="relative z-10 w-full h-[600px] object-cover rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZiZ6kVBgeEuv4_TibeTNFr4M8h46NGSEUUvMJOrP9RNuU9_i_5_nStR2HeSXeNQPsDGVUXzZIZuPN7ynTVa5Q34UOu8A_JEZCB18CQOed5dyQt4Rz3iMBm1oxfDvogICLE-GoLhb1Mro6LaTk9vxXvjts5sWy6CsCMLW9LWpqpNZmyPsaNqUw1yXxBnhs0AkxFj2ogbq8BD2vuW38Z-8R8ILPIs0Jd4K9OZCfaSdgU7w7cF-nrbdQOXq-C68rStgnnU2OG-9iUw0" />
+                  <img alt="Dra. María Cecilia Taboada" className="relative z-10 w-full h-[600px] object-cover rounded-2xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000" src="/directora.png?v=2" />
                 </div>
               </div>
               <div className="w-full md:w-1/2">
