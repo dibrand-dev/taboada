@@ -16,12 +16,8 @@ const faqData = [
     answer: "La consulta estándar incluye toma de agudeza visual, refracción, toma de presión ocular y examen de fondo de ojo. Dependiendo de los hallazgos, se pueden solicitar estudios complementarios más específicos."
   },
   {
-    question: "¿Atienden pacientes con obras sociales y prepagas?",
-    answer: "Trabajamos de manera particular y emitimos factura para que pueda gestionar el reintegro con su obra social o prepaga. Por favor, consulte con su cobertura los requisitos para este trámite."
-  },
-  {
     question: "¿Cuándo consultar por visión borrosa?",
-    answer: "Si experimenta visión borrosa repentina, es un motivo de consulta urgente. Si la visión borrosa es gradual o intermitente, debe agendar un turno a la brevedad para una evaluación completa."
+    answer: "Si experimentás visión borrosa repentina, es un motivo de consulta urgente. Si la visión borrosa es gradual o intermitente, debe agendar un turno a la brevedad para una evaluación completa."
   },
   {
     question: "¿El uso de pantallas puede afectar la visión?",
@@ -33,7 +29,7 @@ const faqData = [
   },
   {
     question: "¿Cómo solicito un turno?",
-    answer: "Puede solicitar su turno fácilmente haciendo clic en el botón \"AGENDÁ UNA CONSULTA\" en la parte superior de la página, o comunicándose vía WhatsApp a nuestro número de contacto."
+    answer: "Podes solicitar su turno fácilmente haciendo clic en el botón \"AGENDÁ UNA CONSULTA\" en la parte superior de la página, o comunicándose vía WhatsApp a nuestro número de contacto."
   }
 ];
 
