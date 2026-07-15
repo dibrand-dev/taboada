@@ -130,7 +130,7 @@ export default function Home() {
         </section>
 
         {/* 07. SECTION 5: RESOURCES */}
-        <section className="bg-surface-container-low py-section-gap-mobile md:py-section-gap-desktop" style={{ backgroundColor: 'rgb(238, 241, 245)' }}>
+        <section className="hidden bg-surface-container-low py-section-gap-mobile md:py-section-gap-desktop" style={{ backgroundColor: 'rgb(238, 241, 245)' }}>
           <div className="container mx-auto px-gutter transition-all duration-1000 opacity-100 translate-y-0">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h2 className="text-h2 md:text-h1-mobile text-primary mb-4">Recursos para cuidar tu visión</h2>
