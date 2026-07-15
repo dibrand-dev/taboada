@@ -43,7 +43,7 @@ export default function Home() {
           <div className="container mx-auto px-gutter transition-all duration-1000 opacity-100 translate-y-0">
             <div className="max-w-4xl mx-auto text-center md:text-left">
               <h2 className="text-h2 md:text-h1 text-secondary mb-12 italic leading-tight">
-                La oftalmología puede ser diferente cuando el paciente está en el centro.
+                La visión es una capacidad esencial para vivir con autonomía, seguridad y bienestar.
               </h2>
               <div className="grid md:grid-cols-2 gap-12 text-primary">
                 <p className="text-body-lg leading-relaxed opacity-90">
