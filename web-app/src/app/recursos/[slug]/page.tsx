@@ -151,7 +151,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <p className="font-body-lg text-white/80 mb-10 max-w-xl mx-auto">
               Agenda hoy una consulta integral y descubre cómo la tecnología médica de vanguardia puede transformar tu día a día.
             </p>
-            <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-[#115565] px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-[#b1ecff] transition-all transform hover:scale-105 shadow-xl">
+            <a href="https://wa.me/5491171121934" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-[#115565] px-12 py-5 font-label-caps text-label-caps tracking-widest hover:bg-[#b1ecff] transition-all transform hover:scale-105 shadow-xl">
               AGENDÁ UNA CONSULTA
             </a>
           </div>

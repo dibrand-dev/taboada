@@ -184,7 +184,7 @@ export default async function Conocimiento() {
               <p className="font-body-lg text-body-lg text-on-surface-variant mb-12">
                 La información es el primer paso, pero nada reemplaza un diagnóstico médico preciso. Agendá una consulta para evaluar tu salud visual.
               </p>
-              <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps hover:bg-primary-container transition-all group transition-soft opacity-100 translate-y-0">
+              <a href="https://wa.me/5491171121934" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps hover:bg-primary-container transition-all group transition-soft opacity-100 translate-y-0">
                 AGENDÁ UNA CONSULTA
                 <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">calendar_month</span>
               </a>

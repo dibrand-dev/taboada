@@ -24,7 +24,7 @@ export default function Home() {
               <h3 className="text-h3 text-secondary mb-10 max-w-xl">
                 La salud visual influye en mucho más que lo que ves. Impacta en tu bienestar, tu rendimiento y tu calidad de vida. Por eso ofrecemos una atención oftalmológica integral, personalizada y respaldada por tecnología de última generación..
               </h3>
-              <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-container text-on-primary px-8 py-5 rounded-lg text-body-lg font-semibold hover:bg-secondary transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/10">
+              <a href="https://wa.me/5491171121934" target="_blank" rel="noopener noreferrer" className="inline-block bg-primary-container text-on-primary px-8 py-5 rounded-lg text-body-lg font-semibold hover:bg-secondary transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/10">
                 AGENDÁ UNA CONSULTA
               </a>
             </div>
