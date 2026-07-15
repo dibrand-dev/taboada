@@ -42,7 +42,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col items-center justify-center gap-6 text-center">
           <p className="text-white/40 text-badge uppercase">© {new Date().getFullYear()} Dra. María Cecilia Taboada. Todos los derechos reservados.</p>
           <div className="flex items-center gap-3">
             <span className="text-white/40 text-badge uppercase">Desarrollado por</span>
