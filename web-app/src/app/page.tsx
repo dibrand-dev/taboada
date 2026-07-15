@@ -196,7 +196,7 @@ export default function Home() {
           <div className="container mx-auto px-gutter text-center relative z-10 transition-all duration-1000 opacity-100 translate-y-0">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-h2 md:text-h1-mobile text-white mb-6">
-                Tu salud visual merece el tiempo, la dedicación y la excelencia que requiere.
+                Tu salud visual merece el tiempo, la dedicación y la excelencia que hacen la diferencia.
               </h2>
               <p className="text-h3 text-white/80 mb-12">
                 Agendá una consulta y realizá una evaluación integral para conocer el estado de tu visión y recibir un diagnóstico personalizado.
