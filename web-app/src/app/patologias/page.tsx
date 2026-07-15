@@ -1,11 +1,8 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Head from "next/head";
 
 export default function Patologias() {
   return (
-    <div className="min-h-screen flex flex-col font-body selection:bg-secondary-container selection:text-on-secondary-container">
-      <Header />
+    <>
       <main className="flex-grow pt-[72px] md:pt-[88px]">
         {/* Hero Section */}
         <section className="bg-[#EEF1F5] py-[120px] px-8">
@@ -143,7 +140,6 @@ export default function Patologias() {
           </div>
         </section>
       </main>
-      <Footer />
-    </div>
+    </>
   );
 }

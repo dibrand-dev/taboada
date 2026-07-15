@@ -193,17 +193,55 @@ export default function Home() {
 
         {/* CTA SECTION */}
         <section className="py-section-gap-mobile md:py-section-gap-desktop bg-petroleum relative" id="contacto">
-          <div className="container mx-auto px-gutter text-center relative z-10 transition-all duration-1000 opacity-100 translate-y-0">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-h2 md:text-h1-mobile text-white mb-6">
-                Tu salud visual merece el tiempo, la dedicación y la excelencia que hacen la diferencia.
-              </h2>
-              <p className="text-h3 text-white/80 mb-12">
-                Agendá una consulta y realizá una evaluación integral para conocer el estado de tu visión y recibir un diagnóstico personalizado.
-              </p>
-              <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-petroleum px-12 py-5 rounded-lg text-body-lg font-bold hover:bg-secondary-fixed transition-all hover:scale-105 active:scale-95 duration-300">
-                AGENDÁ UNA CONSULTA
-              </a>
+          <div className="container mx-auto px-gutter relative z-10 transition-all duration-1000 opacity-100 translate-y-0">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-h2 md:text-h1-mobile text-white mb-6">
+                  Tu salud visual merece el tiempo, la dedicación y la excelencia que hacen la diferencia.
+                </h2>
+                <p className="text-h3 text-white/80 mb-8">
+                  Dejanos tu mensaje y nos pondremos en contacto a la brevedad para coordinar una evaluación integral y personalizada.
+                </p>
+                <div className="flex gap-4">
+                  <a href="https://wa.me/5491171121934?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white hover:text-vision-blue transition-colors font-allround font-bold uppercase text-sm">
+                    <span className="material-symbols-outlined">chat</span>
+                    Escribinos por WhatsApp
+                  </a>
+                </div>
+              </div>
+              
+              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-2xl">
+                <h3 className="text-h3 text-primary mb-6 font-bold">Envianos tu consulta</h3>
+                <form action="https://formsubmit.co/institutotaboada@gmail.com" method="POST" className="space-y-4">
+                  <input type="hidden" name="_subject" value="Nuevo contacto desde la web" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
+                  
+                  <div>
+                    <label htmlFor="nombre" className="block font-allround text-sm font-bold text-primary mb-1">Nombre *</label>
+                    <input type="text" id="nombre" name="nombre" required className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright text-on-surface" placeholder="Tu nombre completo" />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block font-allround text-sm font-bold text-primary mb-1">Email *</label>
+                    <input type="email" id="email" name="email" required className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright text-on-surface" placeholder="tu@email.com" />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="telefono" className="block font-allround text-sm font-bold text-primary mb-1">Teléfono (Opcional)</label>
+                    <input type="tel" id="telefono" name="telefono" className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright text-on-surface" placeholder="Tu número de teléfono" />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="mensaje" className="block font-allround text-sm font-bold text-primary mb-1">Mensaje *</label>
+                    <textarea id="mensaje" name="mensaje" required rows={4} className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright resize-none text-on-surface" placeholder="¿En qué podemos ayudarte?"></textarea>
+                  </div>
+                  
+                  <button type="submit" className="w-full bg-primary text-white py-4 rounded-lg font-allround font-bold hover:bg-secondary-fixed hover:text-petroleum transition-all active:scale-95 mt-4">
+                    Enviar Mensaje
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </section>
