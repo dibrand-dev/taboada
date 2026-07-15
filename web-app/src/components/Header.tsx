@@ -21,14 +21,12 @@ export default function Header() {
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/#servicios" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
-            Servicios
+          {/* <Link href="/recursos" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">Recursos</Link> */}
+          <Link href="/patologias" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
+            Patologías
           </Link>
           <Link href="/#sobre-mi" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
             Sobre Mí
-          </Link>
-          <Link href="/recursos" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
-            Recursos
           </Link>
           <Link href="/#contacto" className="nav-link text-label-caps text-on-surface-variant hover:text-secondary transition-colors duration-300 text-nav-item">
             Contacto
@@ -52,14 +50,12 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-surface-container-lowest md:hidden flex flex-col pt-24 px-gutter animate-in fade-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col gap-8 text-center mt-8">
-            <Link href="/#servicios" onClick={closeMenu} className="text-h3 text-primary hover:text-secondary transition-colors">
-              Servicios
+            {/* <Link href="/recursos" onClick={closeMenu} className="text-h3 text-primary hover:text-secondary transition-colors">Recursos</Link> */}
+            <Link href="/patologias" onClick={closeMenu} className="text-h3 text-primary hover:text-secondary transition-colors">
+              Patologías
             </Link>
             <Link href="/#sobre-mi" onClick={closeMenu} className="text-h3 text-primary hover:text-secondary transition-colors">
               Sobre Mí
-            </Link>
-            <Link href="/recursos" onClick={closeMenu} className="text-h3 text-primary hover:text-secondary transition-colors">
-              Recursos
             </Link>
             <Link href="/#contacto" onClick={closeMenu} className="text-h3 text-primary hover:text-secondary transition-colors">
               Contacto
