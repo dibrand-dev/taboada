@@ -22,12 +22,9 @@ export default function Footer() {
           </div>
           <div className="flex flex-col md:flex-row gap-12 md:gap-24">
             <div className="space-y-4">
-              <p className="text-label-caps text-secondary-fixed font-bold text-badge">Legales</p>
-              <ul className="space-y-2 text-white/50 text-body-md">
-                <li><Link href="#" className="hover:text-white transition-colors">Privacidad</Link></li>
-                <li><Link href="#" className="hover:text-white transition-colors">Términos</Link></li>
-                <li><Link href="/preguntas-frecuentes" className="hover:text-white transition-colors">Preguntas Frecuentes</Link></li>
-              </ul>
+              <Link href="/preguntas-frecuentes" className="text-label-caps text-secondary-fixed font-bold text-badge hover:text-white transition-colors block">
+                Preguntas Frecuentes
+              </Link>
             </div>
             <div className="space-y-4">
               <p className="text-label-caps text-secondary-fixed font-bold text-badge">Conectamos</p>
