@@ -11,7 +11,7 @@ content = content.replace('<title>Dra. María Cecilia Taboada | Oftalmología de
 
 new_main = """<main class="flex-grow pt-20">
 <!-- Hero Section -->
-<section class="bg-[#EEF1F5] px-8 pt-12 pb-4">
+<section class="bg-[#EEF1F5] px-8 pt-24 pb-8">
 <div class="max-w-[800px] mx-auto text-center flex flex-col items-center">
 <div class="space-y-6">
 <h1 class="font-marcellus text-[48px] font-normal leading-[1.1] tracking-[-0.02em] text-primary">
