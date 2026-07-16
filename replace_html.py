@@ -12,17 +12,14 @@ content = content.replace('<title>Dra. María Cecilia Taboada | Oftalmología de
 new_main = """<main class="flex-grow pt-20">
 <!-- Hero Section -->
 <section class="bg-[#EEF1F5] py-[120px] px-8">
-<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-[32px] items-center">
-<div class="md:col-span-7 space-y-6">
+<div class="max-w-[800px] mx-auto text-center flex flex-col items-center">
+<div class="space-y-6">
 <h1 class="font-marcellus text-[40px] md:text-[64px] font-normal leading-[1.1] tracking-[-0.02em] text-primary">
                         Patologías y<br>Condiciones Visuales
                     </h1>
-<p class="font-inter text-[18px] leading-[1.6] text-on-surface-variant max-w-xl">
+<p class="font-inter text-[18px] leading-[1.6] text-on-surface-variant max-w-xl mx-auto">
                         La prevención y el diagnóstico temprano son fundamentales para preservar la salud visual. Descubra información detallada sobre las condiciones más comunes y especializadas que tratamos con excelencia clínica.
                     </p>
-</div>
-<div class="md:col-span-5 hidden md:block">
-<div class="w-full aspect-square bg-cover bg-center rounded-lg shadow-sm border border-outline-variant/30" data-alt="Patologías y Condiciones Visuales" style="background-image: url('patologias.jpg')"></div>
 </div>
 </div>
 </section>

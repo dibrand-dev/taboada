@@ -6,20 +6,14 @@ export default function Patologias() {
       <main className="flex-grow pt-[72px] md:pt-[88px]">
         {/* Hero Section */}
         <section className="bg-[#f6fbfc] py-[120px] px-8">
-          <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-[32px] items-center">
-            <div className="md:col-span-7 space-y-6">
+          <div className="max-w-[800px] mx-auto text-center flex flex-col items-center">
+            <div className="space-y-6">
               <h1 className="font-marcellus text-[40px] md:text-[64px] font-normal leading-[1.1] tracking-[-0.02em] text-primary">
                 Patologías y<br />Condiciones Visuales
               </h1>
-              <p className="font-inter text-[18px] leading-[1.6] text-on-surface-variant max-w-xl">
+              <p className="font-inter text-[18px] leading-[1.6] text-on-surface-variant max-w-xl mx-auto">
                 La prevención y el diagnóstico temprano son fundamentales para preservar la salud visual. Encontrá información detallada sobre las patologías que tratamos.
               </p>
-            </div>
-            <div className="md:col-span-5 hidden md:block">
-              <div 
-                className="w-full aspect-square bg-cover bg-center rounded-lg shadow-sm border border-outline-variant/30" 
-                style={{backgroundImage: "url('/patologias.jpg')"}}
-              ></div>
             </div>
           </div>
         </section>
