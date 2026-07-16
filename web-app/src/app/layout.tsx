@@ -20,6 +20,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Dra. María Cecilia Taboada | Oftalmología de Excelencia",
   description: "Clínica de oftalmología de alta complejidad.",
+  openGraph: {
+    title: "Dra. María Cecilia Taboada | Oftalmología de Excelencia",
+    description: "Clínica de oftalmología de alta complejidad.",
+    url: "https://draceciliataboada.com.ar",
+    siteName: "Dra. Cecilia Taboada",
+    images: [
+      {
+        url: "https://draceciliataboada.com.ar/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dra. María Cecilia Taboada Clínica Oftalmológica",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
