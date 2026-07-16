@@ -9,19 +9,15 @@ content = content.replace('href="#sobre-mi"', 'href="code.html#sobre-mi"')
 content = content.replace('href="#contacto"', 'href="code.html#contacto"')
 content = content.replace('<title>Dra. María Cecilia Taboada | Oftalmología de Excelencia</title>', '<title>Patologías - Dra. María Cecilia Taboada</title>')
 
-new_main = """<main class="flex-grow pt-20">
+new_main = """<main class="flex-grow pt-32 pb-24">
 <!-- Hero Section -->
-<section class="bg-[#EEF1F5] px-8 pt-24 pb-8">
-<div class="max-w-[800px] mx-auto text-center flex flex-col items-center">
-<div class="space-y-6">
-<h1 class="font-marcellus text-[48px] font-normal leading-[1.1] tracking-[-0.02em] text-primary">
+<section class="px-8 text-center mb-16">
+<h1 class="font-marcellus text-[48px] font-normal leading-[1.1] tracking-[-0.02em] text-primary mb-4">
                         Patologías y<br>Condiciones Visuales
                     </h1>
-<p class="font-inter text-[18px] leading-[1.6] text-on-surface-variant max-w-xl mx-auto">
+<p class="font-inter text-[18px] leading-[1.6] text-on-surface-variant max-w-2xl mx-auto">
                         La prevención y el diagnóstico temprano son fundamentales para preservar la salud visual. Descubra información detallada sobre las condiciones más comunes y especializadas que tratamos con excelencia clínica.
                     </p>
-</div>
-</div>
 </section>
 <!-- Filter Section -->
 <section class="py-12 px-8 bg-surface-bright">
