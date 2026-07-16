@@ -5,7 +5,7 @@ export default function Patologias() {
     <>
       <main className="flex-grow pt-[72px] md:pt-[88px]">
         {/* Hero Section */}
-        <section className="bg-[#f6fbfc] px-8">
+        <section className="bg-[#f6fbfc] px-8 pt-12 pb-4">
           <div className="max-w-[800px] mx-auto text-center flex flex-col items-center">
             <div className="space-y-6">
               <h1 className="font-marcellus text-[48px] font-normal leading-[1.1] tracking-[-0.02em] text-primary">
