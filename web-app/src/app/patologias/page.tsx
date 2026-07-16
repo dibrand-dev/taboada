@@ -18,7 +18,7 @@ export default function Patologias() {
             <div className="md:col-span-5 hidden md:block">
               <div 
                 className="w-full aspect-square bg-cover bg-center rounded-lg shadow-sm border border-outline-variant/30" 
-                style={{backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLAZSUTSc8ASYdSeHr2TjOLBY4wFe6-ThuWT37gwWQIIeKQl2soNrmM6evDPgInxARshZ1IbO8M_Jg1c8f3wmMsfpWdEvjh0jZ6zAtZPIYV0vU4nFr-RSdkEBFmpl_qZEnDRJHk1NP6uHmDpxi4jB2m2GFqr9cOHe0rxUtUn3ihmdLoyEULMrMoR-pYUkk2iYEuFTxDok3kB40He3ClZ_yZlaEwWj8JqNt1PzJXasE05g97yH3O5PE')"}}
+                style={{backgroundImage: "url('/patologias.jpg')"}}
               ></div>
             </div>
           </div>
