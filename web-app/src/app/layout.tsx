@@ -18,23 +18,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dra. María Cecilia Taboada | Oftalmología de Excelencia",
-  description: "Clínica de oftalmología de alta complejidad.",
+  metadataBase: new URL('https://draceciliataboada.com.ar'),
+  title: {
+    default: 'Dra. María Cecilia Taboada | Oftalmología de Alta Complejidad',
+    template: '%s | Dra. María Cecilia Taboada'
+  },
+  description: 'Clínica oftalmológica de excelencia. Especialistas en salud visual, medicina preventiva, tecnología de precisión y atención personalizada.',
   openGraph: {
-    title: "Dra. María Cecilia Taboada | Oftalmología de Excelencia",
-    description: "Clínica de oftalmología de alta complejidad.",
-    url: "https://draceciliataboada.com.ar",
-    siteName: "Dra. Cecilia Taboada",
-    images: [
-      {
-        url: "https://draceciliataboada.com.ar/opengraph-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Dra. María Cecilia Taboada Clínica Oftalmológica",
-      },
-    ],
-    locale: "es_AR",
-    type: "website",
+    title: 'Dra. María Cecilia Taboada | Oftalmología Premium',
+    description: 'Medicina preventiva y atención oftalmológica de alta complejidad con tecnología de última generación.',
+    url: 'https://draceciliataboada.com.ar',
+    siteName: 'Dra. María Cecilia Taboada',
+    locale: 'es_AR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dra. María Cecilia Taboada | Oftalmología Premium',
+    description: 'Medicina preventiva y atención oftalmológica de alta complejidad.',
   },
 };
 
