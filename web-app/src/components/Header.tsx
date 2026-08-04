@@ -33,7 +33,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <a href="https://wa.me/5491132649822" target="_blank" rel="noopener noreferrer" className="hidden md:block px-6 py-2 border border-vision-blue rounded-lg text-button-primary text-primary hover:bg-vision-blue/5 transition-all active:scale-95 duration-200 uppercase">
+          <a href="https://wa.me/5491133595932" target="_blank" rel="noopener noreferrer" className="hidden md:block px-6 py-2 border border-vision-blue rounded-lg text-button-primary text-primary hover:bg-vision-blue/5 transition-all active:scale-95 duration-200 uppercase">
             AGENDÁ UNA CONSULTA
           </a>
           <button 
@@ -61,7 +61,7 @@ export default function Header() {
               Contacto
             </Link>
             <div className="mt-8">
-              <a href="https://wa.me/5491132649822" target="_blank" rel="noopener noreferrer" className="w-full block px-6 py-4 border border-vision-blue bg-vision-blue/5 rounded-lg text-button-primary text-primary uppercase font-bold active:scale-95 transition-all">
+              <a href="https://wa.me/5491133595932" target="_blank" rel="noopener noreferrer" className="w-full block px-6 py-4 border border-vision-blue bg-vision-blue/5 rounded-lg text-button-primary text-primary uppercase font-bold active:scale-95 transition-all">
                 AGENDÁ UNA CONSULTA
               </a>
             </div>
