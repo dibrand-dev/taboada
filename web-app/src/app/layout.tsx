@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SchemaMarkup, getBaseKnowledgeGraphSchema } from "@/components/SchemaMarkup";
 
 const tenorSans = Tenor_Sans({ 
   subsets: ["latin"], 
@@ -51,6 +52,7 @@ export default function RootLayout({
     >
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <SchemaMarkup schema={getBaseKnowledgeGraphSchema()} />
       </head>
       <body className="min-h-full flex flex-col selection:bg-secondary-container selection:text-on-secondary-container bg-surface-container-lowest text-on-surface">
         <Header />

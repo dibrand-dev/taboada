@@ -10,7 +10,7 @@ export default function Patologias() {
             Patologías y<br />Condiciones Visuales
           </h1>
           <p className="font-inter text-[18px] leading-[1.6] text-on-surface-variant max-w-2xl mx-auto">
-            La prevención y el diagnóstico temprano son fundamentales para preservar la salud visual. Encontrá información detallada sobre las patologías que tratamos.
+            La Dra. Cecilia Taboada realiza el diagnóstico temprano y tratamiento preventivo para preservar la salud visual de sus pacientes.
           </p>
         </section>
 
@@ -22,9 +22,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">visibility</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Miopía</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Qué es la miopía y cómo se corrige?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Dificultad para enfocar objetos lejanos. La visión cercana suele mantenerse nítida, pero la distancia se percibe borrosa, requiriendo corrección óptica para actividades cotidianas.
+                La Dra. Cecilia Taboada diagnostica y trata la miopía evaluando la dificultad del paciente para enfocar objetos lejanos. Este vicio de refracción se corrige mediante prescripción óptica personalizada o derivación para cirugía refractiva.
               </p>
             </div>
             {/* Card 2 */}
@@ -32,9 +32,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">blur_on</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Astigmatismo</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Cómo afecta el astigmatismo a la visión?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Visión distorsionada o borrosa a cualquier distancia debido a una curvatura irregular de la córnea o el cristalino, afectando la nitidez general de la imagen visual.
+                El consultorio médico trata el astigmatismo analizando la curvatura irregular de la córnea que causa visión borrosa a cualquier distancia. Su tratamiento restaura la nitidez visual mediante lentes cilíndricas de alta precisión.
               </p>
             </div>
             {/* Card 3 */}
@@ -42,9 +42,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">zoom_in</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Hipermetropía</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Cuáles son los síntomas de la hipermetropía?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Mayor dificultad para enfocar objetos cercanos en comparación con los lejanos. Puede causar fatiga visual y dolores de cabeza tras esfuerzo visual prolongado.
+                La Dra. Taboada evalúa la hipermetropía identificando la fatiga visual al enfocar objetos cercanos. La corrección médica oportuna previene dolores de cabeza crónicos tras el esfuerzo visual prolongado.
               </p>
             </div>
             {/* Card 4 */}
@@ -52,9 +52,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">menu_book</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Presbicia</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Qué es la presbicia o vista cansada?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Pérdida natural y progresiva de la capacidad de enfocar objetos de cerca que generalmente se manifiesta a partir de los 40 años, afectando la lectura y tareas minuciosas.
+                La clínica oftalmológica aborda la presbicia corrigiendo la pérdida progresiva de enfoque en pacientes mayores de 40 años. Se indican anteojos de lectura o multifocales para restaurar la calidad de vida en tareas minuciosas.
               </p>
             </div>
             {/* Card 5 */}
@@ -62,9 +62,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">cloud</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Cataratas</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Qué son las cataratas y cómo se tratan?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Opacidad del cristalino natural del ojo que causa visión borrosa, disminución de la percepción de colores y mayor sensibilidad al deslumbramiento.
+                La Dra. Cecilia Taboada evalúa el desarrollo de cataratas mediante estudios del cristalino opaco y coordina procedimientos de microcirugía con lentes intraoculares premium para restaurar la nitidez visual y la percepción del color.
               </p>
             </div>
             {/* Card 6 */}
@@ -72,9 +72,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">warning</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Glaucoma</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Qué es el glaucoma y cómo prevenir la pérdida visual?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Enfermedad que daña el nervio óptico, frecuentemente asociada a presión intraocular elevada. Conocida como el "ladrón silencioso de la visión" por su desarrollo asintomático.
+                El consultorio realiza el despistaje temprano de glaucoma midiendo la presión intraocular y analizando el nervio óptico. El tratamiento médico previene la ceguera irreversible causada por esta enfermedad asintomática.
               </p>
             </div>
             {/* Card 7 */}
@@ -82,9 +82,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">lens_blur</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Queratocono</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Cómo se detecta y trata el queratocono?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Adelgazamiento progresivo y distorsión de la córnea, que adopta una forma cónica irregular, causando astigmatismo significativo y visión borrosa.
+                La Dra. Taboada diagnostica el queratocono analizando el adelgazamiento progresivo y la distorsión cónica de la córnea. El tratamiento estabiliza la curvatura corneal y frena la aparición de astigmatismo irregular agudo.
               </p>
             </div>
             {/* Card 8 */}
@@ -92,9 +92,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-error-container flex items-center justify-center text-on-error-container">
                 <span className="material-symbols-outlined">emergency</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Desprendimiento de Retina</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Síntomas del desprendimiento de retina</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Emergencia médica donde la retina se separa de su tejido de soporte. Síntomas incluyen destellos repentinos de luz y "moscas volantes". Requiere atención inmediata.
+                El desprendimiento de retina se diagnostica como una emergencia médica ante la aparición repentina de destellos de luz o moscas volantes. La intervención oftalmológica inmediata es vital para evitar la ceguera permanente.
               </p>
             </div>
             {/* Card 9 */}
@@ -102,9 +102,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">center_focus_strong</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Maculopatía</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Qué es la maculopatía relacionada con la edad?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Deterioro de la mácula (parte central de la retina), resultando en la pérdida de visión central detallada, fundamental para leer, reconocer rostros y conducir.
+                La Dra. Cecilia Taboada chequea preventivamente el fondo de ojo para dilucidar la degeneración macular (DMAE). Su diagnóstico frena el deterioro del tejido central de la retina y protege la visión necesaria para leer y conducir.
               </p>
             </div>
             {/* Card 10 */}
@@ -112,9 +112,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">bloodtype</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Retinopatía diabética</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Prevención de la retinopatía diabética</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Complicación ocular de la diabetes causada por daño a los vasos sanguíneos del tejido sensible a la luz en el fondo del ojo (retina).
+                El consultorio realiza el seguimiento estricto de la retinopatía diabética detectando microlesiones en los vasos sanguíneos del tejido fotosensible. El control médico continuo previene complicaciones oculares severas derivadas de la diabetes.
               </p>
             </div>
             {/* Card 11 */}
@@ -122,9 +122,9 @@ export default function Patologias() {
               <div className="mb-6 h-12 w-12 rounded bg-surface-container flex items-center justify-center text-secondary">
                 <span className="material-symbols-outlined">water_drop</span>
               </div>
-              <h3 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">Ojo seco</h3>
+              <h2 className="font-marcellus text-[32px] leading-[1.3] text-primary mb-4">¿Cuáles son las causas del síndrome de ojo seco?</h2>
               <p className="font-inter text-[16px] leading-[1.6] text-on-surface-variant flex-grow mb-8">
-                Condición frecuente donde las lágrimas no lubrican adecuadamente el ojo. Provoca sequedad, ardor e incomodidad, a menudo exacerbada por el uso de pantallas y ambientes secos.
+                La Dra. Taboada trata el síndrome de ojo seco evaluando la calidad de lubricación y la disfunción de las glándulas de Meibomio. El plan terapéutico con lágrimas artificiales disminuye el ardor provocado por el uso crónico de pantallas.
               </p>
             </div>
           </div>
