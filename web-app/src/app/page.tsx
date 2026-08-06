@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   return (
@@ -210,38 +210,7 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="bg-white p-8 md:p-10 rounded-2xl shadow-2xl">
-                <h3 className="text-h3 text-primary mb-6 font-bold">Envianos tu consulta</h3>
-                <form action="https://formsubmit.co/institutotaboada@gmail.com" method="POST" className="space-y-4">
-                  <input type="hidden" name="_subject" value="Nuevo contacto desde la web" />
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_template" value="table" />
-                  
-                  <div>
-                    <label htmlFor="nombre" className="block font-allround text-sm font-bold text-primary mb-1">Nombre *</label>
-                    <input type="text" id="nombre" name="nombre" required className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright text-on-surface" placeholder="Tu nombre completo" />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block font-allround text-sm font-bold text-primary mb-1">Email *</label>
-                    <input type="email" id="email" name="email" required className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright text-on-surface" placeholder="tu@email.com" />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="telefono" className="block font-allround text-sm font-bold text-primary mb-1">Teléfono (Opcional)</label>
-                    <input type="tel" id="telefono" name="telefono" className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright text-on-surface" placeholder="Tu número de teléfono" />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="mensaje" className="block font-allround text-sm font-bold text-primary mb-1">Mensaje *</label>
-                    <textarea id="mensaje" name="mensaje" required rows={4} className="w-full p-3 rounded-lg border border-outline-variant focus:border-vision-blue focus:ring-1 focus:ring-vision-blue outline-none transition-all font-body bg-surface-bright resize-none text-on-surface" placeholder="¿En qué podemos ayudarte?"></textarea>
-                  </div>
-                  
-                  <button type="submit" className="w-full bg-primary text-white py-4 rounded-lg font-allround font-bold hover:bg-secondary-fixed hover:text-petroleum transition-all active:scale-95 mt-4">
-                    Enviar Mensaje
-                  </button>
-                </form>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </section>
