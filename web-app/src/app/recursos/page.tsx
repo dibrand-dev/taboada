@@ -1,198 +1,113 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import { Metadata } from 'next'
+import { getSupabasePublicClient, NotaBlog } from '@/lib/supabase-client'
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { createClient } from '@/lib/supabase/server';
-import NewsletterForm from '@/components/NewsletterForm';
+export const revalidate = 3600
 
-export const dynamic = 'force-dynamic';
+export const metadata: Metadata = {
+  title: 'Recursos y Salud Visual | Dra. Cecilia Taboada',
+  description: 'Artículos educativos, consejos médicos y prevención oftalmológica desarrollados por la Dra. María Cecilia Taboada.',
+  alternates: {
+    canonical: 'https://draceciliataboada.com.ar/recursos',
+  },
+}
 
-export default async function Conocimiento() {
-  const supabase = await createClient()
+async function getNotas(): Promise<NotaBlog[]> {
+  const supabase = getSupabasePublicClient()
+  if (!supabase) return []
 
-  const { data: posts, error } = await supabase
-    .from('posts')
-    .select(`
-      *,
-      categories ( id, name, slug ),
-      authors ( id, first_name, last_name, avatar_url )
-    `)
-    .eq('published', true)
-    .order('published_at', { ascending: false, nullsFirst: false })
-    .order('created_at', { ascending: false })
+  try {
+    const { data, error } = await supabase
+      .from('notas')
+      .select('*')
+      .eq('publicada', true)
+      .order('created_at', { ascending: false })
 
-  if (error) {
-    console.error('Error fetching public posts:', error)
+    if (error || !data) return []
+    return data as NotaBlog[]
+  } catch (err) {
+    console.error('Error obteniendo notas:', err)
+    return []
   }
+}
+
+export default async function RecursosPage() {
+  const notas = await getNotas()
 
   return (
-    <>
+    <main className="min-h-screen bg-[#f6fbfc] py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+            Recursos y Salud Visual
+          </h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Información médica actualizada, artículos preventivos y consejos para cuidar tu visión con la rigurosidad y excelencia de la Dra. María Cecilia Taboada.
+          </p>
+        </div>
 
-      <main style={{ backgroundColor: 'rgb(238, 241, 245)' }}>
-        {/* 1. Hero */}
-        <header className="relative w-full h-[819px] flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img alt="" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWoesSwp5ldyPPQB7QNqTDrLSpqjcmL6ige9SCRp3JMvcaGjmNQD6VP85zC1I188AU9_nnL1AsBfePSi5rC8dCsIYZwZdp6iEqdq8fsfgF0C8VNQiGIyZUCj64BworhJ3G1ETIcI3L-1dRcY4vTZeImKiSzj3Bqaxhz-xq98iIVh2I7sq7RMnD9jL3yasAN0ERDT6fiCe1UvkJo6v1Uff39z1JrjXbRIFOlCImVmOpcCQsXlXjn_C" />
-            <div className="absolute inset-0 bg-gradient-to-r from-surface-bright via-surface-bright/40 to-transparent"></div>
+        {notas.length === 0 ? (
+          <div className="bg-white rounded-2xl p-12 text-center border border-slate-100 shadow-sm">
+            <p className="text-slate-600 text-lg mb-4">
+              Próximamente publicaremos nuevos artículos educativos.
+            </p>
+            <Link className="inline-flex items-center text-teal-700 font-semibold hover:underline" href="/">
+              ← Volver al inicio
+            </Link>
           </div>
-          <div className="relative z-10 px-margin-safe max-w-container-max mx-auto w-full">
-            <div className="max-w-2xl">
-              <span className="font-label-caps text-label-caps text-secondary mb-4 block">Centro de Conocimiento</span>
-              <h1 className="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 leading-tight">
-                Recursos para cuidar tu visión
-              </h1>
-              <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                Información desarrollada por la Dra. María Cecilia Taboada para ayudarte a comprender, prevenir y cuidar tu salud visual en cada etapa de la vida.
-              </p>
-            </div>
-          </div>
-        </header>
-
-        {/* 2. Introducción Editorial */}
-        <section className="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-lowest bg-white">
-          <div className="px-margin-safe max-w-4xl mx-auto text-center">
-            <div className="mb-12 inline-block">
-              <span className="material-symbols-outlined text-secondary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>auto_stories</span>
-            </div>
-            <h2 className="font-headline-lg text-headline-lg text-primary mb-8 italic">&quot;Un paciente informado es el mejor aliado de su propia salud.&quot;</h2>
-            <div className="font-body-lg text-body-lg text-on-surface-variant leading-loose space-y-6">
-              <p>
-                La medicina moderna no solo ocurre dentro del consultorio. Entender los procesos biológicos de nuestros ojos, identificar síntomas tempranos y adoptar hábitos preventivos son pilares fundamentales para una vida con plenitud visual.
-              </p>
-              <p>
-                Este espacio ha sido curado meticulosamente para ofrecerte claridad científica con un lenguaje cercano, transformando la complejidad médica en herramientas prácticas para tu bienestar.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. Buscador & 4. Filtros */}
-        <section className="sticky top-[73px] z-40 bg-surface-bright/95 backdrop-blur-sm border-b border-outline-variant/10 py-8">
-          <div className="px-margin-safe max-w-container-max mx-auto">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-              <div className="relative flex-1 max-w-md group transition-soft opacity-100 translate-y-0">
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors">search</span>
-                <input className="w-full bg-transparent border-0 border-b border-outline/30 focus:border-secondary focus:ring-0 pl-8 pb-3 font-body-md text-body-md placeholder:text-outline/60 transition-all outline-none" placeholder="Buscar un artículo..." type="text" />
-              </div>
-              <div className="flex overflow-x-auto gap-3 hide-scrollbar pb-2 md:pb-0">
-                <button className="whitespace-nowrap px-6 py-2 bg-primary text-on-primary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Todos</button>
-                <button className="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-secondary/10 hover:text-secondary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Prevención</button>
-                <button className="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-secondary/10 hover:text-secondary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Controles</button>
-                <button className="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-secondary/10 hover:text-secondary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Salud Visual</button>
-                <button className="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-secondary/10 hover:text-secondary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Tecnología</button>
-                <button className="whitespace-nowrap px-6 py-2 bg-surface-container text-on-surface-variant hover:bg-secondary/10 hover:text-secondary font-label-caps text-[10px] uppercase tracking-widest rounded-full transition-soft cursor-pointer">Pantallas</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 5. Listado de Artículos (Editorial Grid) */}
-        <section className="py-section-gap-mobile md:py-section-gap-desktop">
-          <div className="px-margin-safe max-w-container-max mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-              {posts && posts.length > 0 ? (
-                posts.map((post: any, index: number) => {
-                  const isFeatured = index === 0;
-                  
-                  if (isFeatured) {
-                    return (
-                      <div key={post.id} className="md:col-span-12 mb-16 group transition-soft opacity-100 translate-y-0">
-                        <Link className="grid grid-cols-1 md:grid-cols-2 bg-surface-container-lowest overflow-hidden border border-outline-variant/10 hover:border-secondary/20 transition-soft bg-white" href={`/recursos/${post.slug}`}>
-                          <div className="h-[400px] md:h-auto relative overflow-hidden">
-                            {post.cover_image_url ? (
-                              <Image className="object-cover group-hover:scale-105 transition-transform duration-1000" alt={post.title} src={post.cover_image_url} fill sizes="(max-width: 768px) 100vw, 50vw" />
-                            ) : (
-                              <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-1000 absolute inset-0">Sin imagen</div>
-                            )}
-                            <div className="absolute top-6 left-6">
-                              <span className="bg-secondary text-white px-4 py-1 font-label-caps text-[10px] tracking-widest uppercase">Destacado</span>
-                            </div>
-                          </div>
-                          <div className="p-8 md:p-16 flex flex-col justify-center">
-                            <div className="flex items-center gap-4 mb-6">
-                              <span className="font-label-caps text-label-caps text-secondary uppercase">{post.categories?.name || 'General'}</span>
-                              <span className="w-1 h-1 bg-outline rounded-full"></span>
-                              <span className="font-label-caps text-label-caps text-outline uppercase">{post.reading_time_minutes || 5} MIN LECTURA</span>
-                            </div>
-                            <h3 className="font-headline-lg text-headline-lg text-primary mb-6 group-hover:text-secondary transition-colors line-clamp-2">{post.title}</h3>
-                            <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 line-clamp-3">
-                              {post.summary}
-                            </p>
-                            <div className="flex items-center text-primary font-label-caps text-label-caps gap-2 group/btn">
-                              <span>Leer artículo</span>
-                              <span className="material-symbols-outlined group-hover/btn:translate-x-2 transition-transform">arrow_forward</span>
-                            </div>
-                          </div>
-                        </Link>
-                      </div>
-                    )
-                  }
-
-                  return (
-                    <div key={post.id} className="md:col-span-4 group transition-soft opacity-100 translate-y-0">
-                      <Link className="flex flex-col h-full bg-white transition-soft border-b border-transparent hover:border-secondary pb-8" href={`/recursos/${post.slug}`}>
-                        <div className="aspect-[4/3] overflow-hidden mb-8 relative">
-                          {post.cover_image_url ? (
-                            <Image className="object-cover group-hover:scale-105 transition-transform duration-700" alt={post.title} src={post.cover_image_url} fill sizes="(max-width: 768px) 100vw, 33vw" />
-                          ) : (
-                            <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 group-hover:scale-105 transition-transform duration-700 absolute inset-0">Sin imagen</div>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-3 mb-4">
-                          <span className="font-label-caps text-[10px] text-secondary tracking-widest uppercase">{post.categories?.name || 'General'}</span>
-                          <span className="text-outline">•</span>
-                          <span className="font-label-caps text-[10px] text-outline tracking-widest uppercase">{post.reading_time_minutes || 5} MIN</span>
-                        </div>
-                        <h4 className="font-headline-md text-headline-md text-primary mb-4 leading-tight group-hover:text-secondary transition-colors line-clamp-2">{post.title}</h4>
-                        <p className="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-3">
-                          {post.summary}
-                        </p>
-                        <span className="mt-auto font-label-caps text-label-caps text-outline flex items-center gap-2">LEER MÁS <span className="material-symbols-outlined text-sm">north_east</span></span>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {notas.map((nota) => (
+              <article
+                key={nota.id}
+                className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col"
+              >
+                {nota.imagen_url ? (
+                  <div className="relative h-48 w-full bg-slate-100">
+                    <Image alt={nota.titulo} className="object-cover" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" src={nota.imagen_url}/>
+                  </div>
+                ) : (
+                  <div className="h-48 w-full bg-gradient-to-br from-teal-50 to-slate-100 flex items-center justify-center">
+                    <span className="text-teal-700 font-medium">Oftalmología Preventiva</span>
+                  </div>
+                )}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    {nota.categoria && (
+                      <span className="inline-block px-3 py-1 bg-teal-50 text-teal-800 text-xs font-semibold rounded-full mb-3">
+                        {nota.categoria}
+                      </span>
+                    )}
+                    <h2 className="text-xl font-bold text-slate-900 mb-2 line-clamp-2">
+                      <Link className="hover:text-teal-700 transition-colors" href={`/articulo/${nota.slug}`}>
+                        {nota.titulo}
                       </Link>
-                    </div>
-                  )
-                })
-              ) : (
-                <div className="col-span-full text-center py-24 text-slate-500 font-body-lg">
-                  Pronto publicaremos nuevos artículos.
+                    </h2>
+                    {nota.resumen && (
+                      <p className="text-slate-600 text-sm line-clamp-3 mb-4">
+                        {nota.resumen}
+                      </p>
+                    )}
+                  </div>
+                  <div className="pt-4 border-t border-slate-50 flex items-center justify-between">
+                    <span className="text-xs text-slate-400">
+                      {new Date(nota.created_at).toLocaleDateString('es-AR', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                      })}
+                    </span>
+                    <Link className="text-teal-700 font-semibold text-sm hover:underline" href={`/articulo/${nota.slug}`}>
+                      Leer artículo →
+                    </Link>
+                  </div>
                 </div>
-              )}
-            </div>
+              </article>
+            ))}
           </div>
-        </section>
-
-        {/* 6. Newsletter */}
-        <section className="py-section-gap-mobile md:py-section-gap-desktop bg-primary text-on-primary relative overflow-hidden" style={{ backgroundColor: '#EEF1F5' }}>
-          <div className="absolute inset-0 opacity-10 pointer-events-none"></div>
-          <div className="px-margin-safe max-w-container-max mx-auto relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-gutter">
-              <div>
-                <h2 className="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 text-primary">Recibí consejos para cuidar tu salud visual</h2>
-                <p className="font-body-lg text-body-lg opacity-80 max-w-md text-primary">
-                  Unite a nuestra comunidad editorial y recibí una vez al mes las novedades más importantes en oftalmología y bienestar.
-                </p>
-              </div>
-              <NewsletterForm />
-            </div>
-          </div>
-        </section>
-
-        {/* 7. CTA Final */}
-        <section className="py-section-gap-mobile md:py-section-gap-desktop bg-surface-container-low">
-          <div className="px-margin-safe max-w-container-max mx-auto text-center">
-            <div className="max-w-2xl mx-auto">
-              <h2 className="font-headline-lg text-headline-lg text-primary mb-6">¿Necesitás una evaluación personalizada?</h2>
-              <p className="font-body-lg text-body-lg text-on-surface-variant mb-12">
-                La información es el primer paso, pero nada reemplaza un diagnóstico médico preciso. Agendá una consulta para evaluar tu salud visual.
-              </p>
-              <a href="https://wa.me/5491133595932" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-primary text-on-primary px-12 py-5 font-label-caps text-label-caps hover:bg-primary-container transition-all group transition-soft opacity-100 translate-y-0">
-                AGENDÁ UNA CONSULTA
-                <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">calendar_month</span>
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-
-    </>
-  );
+        )}
+      </div>
+    </main>
+  )
 }
