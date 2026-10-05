@@ -137,7 +137,7 @@ export default async function Home() {
                 <span className="text-label-caps text-secondary tracking-widest block mb-4 text-badge">Sobre la Directora</span>
                 <h2 className="text-h2 md:text-h1-mobile text-primary mb-8 leading-tight">Una trayectoria basada en la excelencia médica y la atención personalizada.</h2>
                 <div className="space-y-6 text-on-surface-variant text-body-lg">
-                  <p>Soy la Dra. María Cecilia Taboada, médica oftalmóloga, y desde hace años acompaño a personas de distintas edades en el cuidado de su salud visual.</p>
+                  <p>Soy la Dra. María Cecilia Taboada, médica oftalmóloga, y desde hace décadas desarrollo mi práctica profesional en el Instituto Oftalmológico Taboada, acompañando a personas de distintas edades en el cuidado de su salud visual.</p>
                   <p>Mi compromiso es ofrecer una medicina de excelencia, respaldada por formación continua, experiencia clínica y tecnología de última generación, sin perder nunca el trato humano que cada paciente merece.</p>
                   <p>Creo que una consulta médica debe ser un espacio de confianza, donde cada persona pueda comprender su situación, resolver sus dudas y participar activamente en las decisiones sobre su salud.</p>
                   <p>Porque cuidar la visión también es cuidar la calidad de vida.</p>
@@ -145,7 +145,7 @@ export default async function Home() {
                   <div className="pt-8 border-t border-outline-variant/30">
                     <div className="flex items-start gap-4">
                       <span className="material-symbols-outlined text-secondary">location_on</span>
-                      <p className="text-secondary font-bold uppercase text-label-caps tracking-wider text-badge">ATENCIÓN EN EL instituto taboada, centro de referencia en oftalmología de alta complegidad.</p>
+                      <p className="text-secondary font-bold uppercase text-label-caps tracking-wider text-badge">ATENCIÓN EN EL INSTITUTO TABOADA - SEDE CASTELAR - Pres. Domingo Faustino Sarmiento 1652, B1712BOF Castelar, Provincia de Buenos Aires</p>
                     </div>
                   </div>
                 </div>
