@@ -13,6 +13,27 @@ export default function NewsletterForm() {
     e.preventDefault()
     if (!email) return
 
+    // Validaciones de longitud del lado del cliente
+    if (email.length > 320) {
+      setStatus('error')
+      setErrorMessage('El correo no puede exceder los 320 caracteres.')
+      return
+    }
+
+    const parts = email.split('@')
+    if (parts.length === 2) {
+      if (parts[0].length > 64) {
+        setStatus('error')
+        setErrorMessage('La parte local del correo (antes del @) no puede exceder los 64 caracteres.')
+        return
+      }
+      if (parts[1].length > 255) {
+        setStatus('error')
+        setErrorMessage('El dominio del correo no puede exceder los 255 caracteres.')
+        return
+      }
+    }
+
     setIsLoading(true)
     setStatus('idle')
     setErrorMessage('')
@@ -38,8 +59,8 @@ export default function NewsletterForm() {
     return (
       <div className="bg-primary/5 text-primary p-6 rounded-lg border border-primary/20 flex flex-col items-center justify-center min-h-[160px]">
         <span className="material-symbols-outlined text-4xl mb-2">check_circle</span>
-        <p className="font-headline-md font-bold">¡Gracias por suscribirte!</p>
-        <p className="font-body-md mt-2 text-center opacity-80">Pronto recibirás nuestras novedades en tu correo.</p>
+        <p className="font-headline-md font-bold text-center">¡Suscripción exitosa!</p>
+        <p className="font-body-md mt-2 text-center opacity-80">Gracias por sumarte. Pronto recibirás nuestras novedades sobre salud visual.</p>
         <button 
           onClick={() => setStatus('idle')}
           className="mt-6 font-label-caps text-[10px] uppercase tracking-widest opacity-60 hover:opacity-100 transition-opacity"
@@ -60,6 +81,7 @@ export default function NewsletterForm() {
             placeholder="tu@email.com" 
             type="email" 
             required
+            maxLength={320}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             disabled={isLoading}

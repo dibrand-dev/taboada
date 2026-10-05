@@ -1,5 +1,4 @@
 import NoteForm from '@/components/panel/NoteForm'
-import { getPostById } from '@/services/posts'
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 
@@ -8,8 +7,17 @@ export const dynamic = 'force-dynamic'
 export default async function EditarNotaPage({ params }: { params: Promise<{ id: string }> }) {
   try {
     const { id } = await params
-    const post = await getPostById(id)
     const supabase = await createClient()
+
+    const { data: post, error: postError } = await supabase
+      .from('posts')
+      .select('*')
+      .eq('id', id)
+      .single()
+
+    if (postError || !post) {
+      throw new Error('Post not found')
+    }
 
     // Fetch categories and authors for the select menus
     const { data: categories } = await supabase.from('categories').select('id, name')

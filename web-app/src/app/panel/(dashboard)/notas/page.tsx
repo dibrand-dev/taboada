@@ -1,12 +1,22 @@
 import Link from 'next/link'
-import { getPosts } from '@/services/posts'
+import { createClient } from '@/lib/supabase/server'
 import { Edit, Plus } from 'lucide-react'
 import DeletePostButton from '@/components/panel/DeletePostButton'
 
 export const dynamic = 'force-dynamic'
 
 export default async function NotasPage() {
-  const posts = await getPosts() || []
+  const supabase = await createClient()
+  const { data } = await supabase
+    .from('posts')
+    .select(`
+      *,
+      categories ( id, name ),
+      authors ( id, first_name, last_name, avatar_url )
+    `)
+    .order('created_at', { ascending: false })
+    
+  const posts = data || []
 
   return (
     <div className="space-y-6">

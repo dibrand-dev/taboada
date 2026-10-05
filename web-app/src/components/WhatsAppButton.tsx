@@ -1,6 +1,15 @@
+'use client';
+
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/panel')) {
+    return null;
+  }
+
   return (
     <a
       href="https://wa.me/5491176600234?text=Hola%2C%20te%20contacto%20desde%20la%20web%20porque%20quiero%20hacer%20una%20consulta."

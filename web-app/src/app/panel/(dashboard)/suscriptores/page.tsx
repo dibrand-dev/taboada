@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import ExportCsvButton from '@/components/panel/ExportCsvButton'
+import DeleteSubscriberButton from '@/components/panel/DeleteSubscriberButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -34,6 +35,7 @@ export default async function SuscriptoresPage() {
               <tr className="border-b border-slate-100">
                 <th className="py-4 pl-6 pr-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">Correo Electrónico</th>
                 <th className="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider">Fecha de Suscripción</th>
+                <th className="px-6 py-4 text-xs font-semibold text-slate-400 uppercase tracking-wider text-right">Acciones</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-50">
@@ -54,11 +56,14 @@ export default async function SuscriptoresPage() {
                         })}
                       </div>
                     </td>
+                    <td className="px-6 py-4 text-right">
+                      <DeleteSubscriberButton id={sub.id} />
+                    </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan={2} className="py-12 text-center text-sm text-slate-500">
+                  <td colSpan={3} className="py-12 text-center text-sm text-slate-500">
                     No hay suscriptores registrados todavía.
                   </td>
                 </tr>

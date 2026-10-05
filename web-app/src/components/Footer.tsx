@@ -1,7 +1,16 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/panel')) {
+    return null;
+  }
+
   return (
     <footer className="bg-primary text-white py-16 px-gutter border-t border-white/5">
       <div className="container mx-auto">
@@ -22,6 +31,9 @@ export default function Footer() {
           </div>
           <div className="flex flex-col md:flex-row gap-12 md:gap-24">
             <div className="space-y-4">
+              <Link href="/blog" className="text-label-caps text-secondary-fixed font-bold text-badge hover:text-white transition-colors block">
+                Artículos
+              </Link>
               <Link href="/preguntas-frecuentes" className="text-label-caps text-secondary-fixed font-bold text-badge hover:text-white transition-colors block">
                 Preguntas Frecuentes
               </Link>

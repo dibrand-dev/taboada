@@ -1,7 +1,32 @@
 import Link from "next/link";
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import { getSupabasePublicClient } from '@/lib/supabase-client'
+import { Post } from './blog/page'
 
-export default function Home() {
+async function getRecentPosts(): Promise<Post[]> {
+  const supabase = getSupabasePublicClient()
+  if (!supabase) return []
+
+  try {
+    const { data, error } = await supabase
+      .from('posts')
+      .select('*, categories(name)')
+      .eq('published', true)
+      .order('created_at', { ascending: false })
+      .limit(3)
+
+    if (error || !data) return []
+    return data as Post[]
+  } catch (err) {
+    console.error('Error obteniendo notas recientes:', err)
+    return []
+  }
+}
+
+export default async function Home() {
+  const recentPosts = await getRecentPosts()
+
   return (
     <>
 
@@ -130,66 +155,54 @@ export default function Home() {
         </section>
 
         {/* 07. SECTION 5: RESOURCES */}
-        <section className="hidden bg-surface-container-low py-section-gap-mobile md:py-section-gap-desktop" style={{ backgroundColor: 'rgb(238, 241, 245)' }}>
-          <div className="container mx-auto px-gutter transition-all duration-1000 opacity-100 translate-y-0">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-h2 md:text-h1-mobile text-primary mb-4">Recursos para cuidar tu visión</h2>
-              <p className="text-h3 text-on-surface-variant">Información confiable para cuidar tu salud visual en cada etapa de la vida.</p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {/* Card 1 */}
-              <div className="bg-white rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all duration-300 group">
-                <div className="h-64 overflow-hidden">
-                  <img alt="Control Oftalmológico" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQkoiCNPkHLew9pNF3WonEG2Elq-ynKfgFQ_C0kpl0uha_cukuHckoPiHtzxSfipsmjWOvP92fPHnRlOWBuSPOoXrYcwbGFvDGYPgL0KMsUxqFBgnRz-NUuqbMDmrYnvWv1SqPelk8sSh16Wq1FbpfBf9o5MnQ79_isKDwl22nNN0RxMfwlQbVxlqZ1bgL3-FY8Nff65EeYUhrVvT03_op7i97evYAbDJ_qTUfrppImQAPL4hgBYJl" />
-                </div>
-                <div className="p-8">
-                  <span className="text-label-caps text-secondary font-bold mb-3 block text-badge">Control Oftalmológico</span>
-                  <h4 className="text-h4 text-primary mb-4 leading-tight">¿Cada cuánto tiempo conviene realizar un control oftalmológico?</h4>
-                  <p className="text-on-surface-variant mb-6 text-body-md">Conocé por qué los controles preventivos permiten detectar enfermedades antes de que aparezcan síntomas.</p>
-                  <button className="text-secondary font-bold text-label-caps flex items-center gap-2 hover:gap-3 transition-all text-button-primary">
-                    Leer más <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </button>
-                </div>
+        {recentPosts.length > 0 && (
+          <section className="bg-surface-container-low py-section-gap-mobile md:py-section-gap-desktop" style={{ backgroundColor: 'rgb(238, 241, 245)' }}>
+            <div className="container mx-auto px-gutter transition-all duration-1000 opacity-100 translate-y-0">
+              <div className="max-w-3xl mx-auto text-center mb-16">
+                <h2 className="text-h2 md:text-h1-mobile text-primary mb-4 font-marcellus">Recursos para cuidar tu visión</h2>
+                <p className="text-h3 text-on-surface-variant font-inter">Información confiable para cuidar tu salud visual en cada etapa de la vida.</p>
               </div>
-              {/* Card 2 */}
-              <div className="bg-white rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all duration-300 group">
-                <div className="h-64 overflow-hidden">
-                  <img alt="Pantallas" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTnPhIGLtMR8W3qvhGCrJA0UoVzBArk1zeRuEUzJqQQ6ZbdcVbK1o8rYshYASMmzh6kcrmkuNIhYrkva9i_82aSLzfNBlG5ZYaPjEQZwBMhYvuJXFiNEh7h-yn92Bqip_AWBM9x1nFFvObv-gNOf0blhbQRXHU1FhfJdj9rZmAm5sCbry0CuAkTE4MIzVNCB3NgNIOdLDwRxQaOh8eRnFMv0MgEIutF2-3i3VdPgH1TophtqHO5mxB" />
-                </div>
-                <div className="p-8">
-                  <span className="text-label-caps text-secondary font-bold mb-3 block text-badge">Pantallas</span>
-                  <h4 className="text-h4 text-primary mb-4 leading-tight">Fatiga visual: cómo afectan las pantallas a tus ojos</h4>
-                  <p className="text-on-surface-variant mb-6 text-body-md">Qué síntomas son normales, cuáles requieren consulta y cómo proteger tu visión durante la jornada laboral.</p>
-                  <button className="text-secondary font-bold text-label-caps flex items-center gap-2 hover:gap-3 transition-all text-button-primary">
-                    Leer más <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </button>
-                </div>
+              <div className="grid md:grid-cols-3 gap-8 mb-16">
+                {recentPosts.map((post) => (
+                  <Link href={`/blog/${post.slug}`} key={post.id} className="bg-white rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all duration-300 group block">
+                    <div className="h-64 overflow-hidden relative">
+                      {post.cover_image_url ? (
+                        <Image 
+                          alt={post.title} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                          src={post.cover_image_url} 
+                          fill
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-surface-variant to-surface-dim group-hover:scale-105 transition-transform duration-500" />
+                      )}
+                    </div>
+                    <div className="p-8">
+                      <span className="text-label-caps text-secondary font-bold mb-3 block font-allround text-badge uppercase">
+                        {post.categories?.name || 'Salud Visual'}
+                      </span>
+                      <h4 className="text-h4 text-primary mb-4 font-inter leading-tight line-clamp-2">{post.title}</h4>
+                      {post.summary && (
+                        <p className="text-on-surface-variant font-inter mb-6 text-body-md line-clamp-2">{post.summary}</p>
+                      )}
+                      <div className="text-secondary font-bold text-label-caps flex items-center gap-2 hover:gap-3 transition-all font-allround text-button-primary">
+                        Leer más <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
-              {/* Card 3 */}
-              <div className="bg-white rounded-2xl overflow-hidden border border-outline-variant/20 hover:shadow-xl transition-all duration-300 group">
-                <div className="h-64 overflow-hidden">
-                  <img alt="Después de los 40" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAykREMrSBFGIH6p1KzGtMoKwCx3vZuqw9Yp6ks_Kpi8JsvMU5z1zqiGx_t953G7qJ1oQrZqU2bCB-Ir9YhpmL7_IXLjG2WJzbEsSyiglUIyrbXt80rbAhiQcptDBtWPCdCxxGbyg_RjrU6rIOWb97-h0JzHYUOvoiCIiCWVVGN3VR6KfqjlDSeCPOaZ5HzCteV7AbF0yr1CWzxesuEIO3F1j4KFPjamDuHwrTauPUh_zRG-_4poM9F" />
-                </div>
-                <div className="p-8">
-                  <span className="text-label-caps text-secondary font-bold mb-3 block text-badge">Después de los 40</span>
-                  <h4 className="text-h4 text-primary mb-4 leading-tight">Los cambios naturales de la visión a partir de los 40 años</h4>
-                  <p className="text-on-surface-variant mb-6 text-body-md">Entendé qué ocurre con la vista con el paso del tiempo y cuándo es recomendable consultar.</p>
-                  <button className="text-secondary font-bold text-label-caps flex items-center gap-2 hover:gap-3 transition-all text-button-primary">
-                    Leer más <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </button>
-                </div>
+              <div className="flex flex-col items-center gap-12">
+                <Link href="/blog" className="px-10 py-4 border border-secondary text-secondary rounded-lg font-allround text-button-primary hover:bg-secondary hover:text-white transition-all uppercase">
+                  Ver todos los artículos
+                </Link>
+                <blockquote className="max-w-2xl text-center text-on-surface-variant italic font-marcellus text-blockquote opacity-80">
+                  Creemos que un paciente informado toma mejores decisiones sobre su salud. Por eso compartimos contenidos desarrollados con el mismo criterio científico que aplicamos en cada consulta.
+                </blockquote>
               </div>
             </div>
-            <div className="flex flex-col items-center gap-12">
-              <Link href="/recursos" className="inline-block px-10 py-4 border border-secondary text-secondary rounded-lg text-button-primary hover:bg-secondary hover:text-white transition-all uppercase">
-                Ver todos los recursos
-              </Link>
-              <blockquote className="max-w-2xl text-center text-on-surface-variant italic text-blockquote opacity-80">
-                Creemos que un paciente informado toma mejores decisiones sobre su salud. Por eso compartimos contenidos desarrollados con el mismo criterio científico que aplicamos en cada consulta.
-              </blockquote>
-            </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* CTA SECTION */}
         <section className="py-section-gap-mobile md:py-section-gap-desktop bg-petroleum relative" id="contacto">

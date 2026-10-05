@@ -51,7 +51,12 @@ export const createPost = async (postData: Partial<Post>) => {
     .select()
     .single()
   
-  if (error) throw error
+  if (error) {
+    if (error.code === '23505' || error.message.includes('unique')) {
+      throw new Error('Ya existe una nota con este enlace (Slug). Por favor, modificalo para que sea único.')
+    }
+    throw error
+  }
   return data
 }
 
@@ -64,7 +69,12 @@ export const updatePost = async (id: string, postData: Partial<Post>) => {
     .select()
     .single()
   
-  if (error) throw error
+  if (error) {
+    if (error.code === '23505' || error.message.includes('unique')) {
+      throw new Error('Ya existe una nota con este enlace (Slug). Por favor, modificalo para que sea único.')
+    }
+    throw error
+  }
   return data
 }
 

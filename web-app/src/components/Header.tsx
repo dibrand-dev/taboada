@@ -2,11 +2,17 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const closeMenu = () => setIsMobileMenuOpen(false);
+
+  if (pathname?.startsWith('/panel')) {
+    return null;
+  }
 
   return (
     <>

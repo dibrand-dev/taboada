@@ -38,6 +38,8 @@ export async function createUserAction(formData: FormData) {
 
     if (authError) throw authError
 
+    const avatarUrl = formData.get('avatar_url') as string
+
     // 2. Crear registro en la tabla pública authors
     const { error: dbError } = await supabaseAdmin
       .from('authors')
@@ -46,6 +48,7 @@ export async function createUserAction(formData: FormData) {
         first_name: nombre,
         last_name: apellido,
         email: email,
+        avatar_url: avatarUrl || null,
       })
 
     if (dbError) {
@@ -66,13 +69,17 @@ export async function updateUserAction(id: string, formData: FormData) {
   const apellido = formData.get('apellido') as string
   const password = formData.get('password') as string
 
-  if (!nombre || !apellido) {
-    return { error: 'Nombre y apellido son obligatorios' }
+  const email = formData.get('email') as string
+  const avatarUrl = formData.get('avatar_url') as string
+
+  if (!nombre || !apellido || !email) {
+    return { error: 'Nombre, apellido y email son obligatorios' }
   }
 
   try {
-    // 1. Actualizar metadatos y (opcionalmente) contraseña en Auth
+    // 1. Actualizar metadatos, email y (opcionalmente) contraseña en Auth
     const updateData: any = {
+      email,
       user_metadata: { nombre, apellido }
     }
     if (password) {
@@ -88,6 +95,8 @@ export async function updateUserAction(id: string, formData: FormData) {
       .update({
         first_name: nombre,
         last_name: apellido,
+        email: email,
+        avatar_url: avatarUrl || null,
       })
       .eq('id', id)
 
