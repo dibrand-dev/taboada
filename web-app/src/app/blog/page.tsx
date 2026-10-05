@@ -28,7 +28,7 @@ export interface Post {
   created_at: string
   updated_at: string
   categories?: { name: string }
-  authors?: { first_name: string, last_name: string }
+  authors?: { first_name: string, last_name: string, avatar_url?: string }
 }
 
 async function getNotas(query?: string, categoryId?: string): Promise<Post[]> {
