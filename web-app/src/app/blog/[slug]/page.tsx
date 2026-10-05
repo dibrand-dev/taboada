@@ -107,9 +107,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="flex flex-wrap items-center gap-6 py-6 border-y border-gray-100 mb-12">
           <div className="flex items-center gap-4">
             <div className="relative w-12 h-12 rounded-full overflow-hidden">
-              <Image 
-                src={nota.authors?.avatar_url || "https://lh3.googleusercontent.com/aida-public/AB6AXuAsTVrX_2er0NJP4fUIYy-Ycpyrpb__LH2nhLMM3vzvbAxbyYpdZEwvnvJOI6HziihMU_qy-QToixPDlMpnCb_ZZE5tMZ0vRFpAKF7kMKaPafJgC3fsL7zpzW4QsjWDWFNk8vvx8WxHB310N0a-euySZbhrL0wtIYVEXIcH0pySoBg73yrL2vPN6p9K8UekZJC0u1rNwrTgNu173CmSKKV0EYP5_GMAYRmp2iJCpMQPZ7ZU7tqgjh0O"} 
-                alt={nota.authors?.first_name ? `${nota.authors.first_name} ${nota.authors.last_name}` : "Dra. María Cecilia Taboada"} 
+              <Image
+                src={nota.authors?.avatar_url || "https://lh3.googleusercontent.com/aida-public/AB6AXuAsTVrX_2er0NJP4fUIYy-Ycpyrpb__LH2nhLMM3vzvbAxbyYpdZEwvnvJOI6HziihMU_qy-QToixPDlMpnCb_ZZE5tMZ0vRFpAKF7kMKaPafJgC3fsL7zpzW4QsjWDWFNk8vvx8WxHB310N0a-euySZbhrL0wtIYVEXIcH0pySoBg73yrL2vPN6p9K8UekZJC0u1rNwrTgNu173CmSKKV0EYP5_GMAYRmp2iJCpMQPZ7ZU7tqgjh0O"}
+                alt={nota.authors?.first_name ? `${nota.authors.first_name} ${nota.authors.last_name}` : "Dra. María Cecilia Taboada"}
                 fill
                 className="object-cover"
               />
@@ -122,11 +122,11 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="hidden md:block w-px h-10 bg-gray-200"></div>
           <div className="flex items-center gap-6 text-sm text-gray-500">
             <span className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-lg">calendar_today</span> 
+              <span className="material-symbols-outlined text-lg">calendar_today</span>
               {new Date(nota.created_at).toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' })}
             </span>
             <span className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-lg">schedule</span> 
+              <span className="material-symbols-outlined text-lg">schedule</span>
               {nota.reading_time_minutes ? `${nota.reading_time_minutes} min de lectura` : '5 min de lectura'}
             </span>
           </div>
@@ -135,9 +135,9 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Imagen Principal */}
         {nota.cover_image_url && (
           <div className="w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden mb-16 shadow-lg relative bg-slate-100">
-            <Image 
-              src={nota.cover_image_url} 
-              alt={nota.title} 
+            <Image
+              src={nota.cover_image_url}
+              alt={nota.title}
               fill
               className="object-cover"
             />
@@ -145,11 +145,11 @@ export default async function BlogPostPage({ params }: PageProps) {
         )}
 
         {/* Contenido del Artículo */}
-        <div 
+        <div
           className="prose prose-lg md:prose-xl prose-blue max-w-none prose-headings:font-serif prose-headings:text-[#1a365d] prose-a:text-[#1C96C5] prose-img:rounded-xl"
           dangerouslySetInnerHTML={{ __html: nota.content }}
         />
-        
+
         {/* CTA Intermedio */}
         <div className="mt-16 p-8 md:p-12 bg-blue-50 rounded-2xl text-center">
           <h4 className="font-serif text-2xl md:text-3xl text-[#1a365d] mb-4">¿Tenés dudas sobre este tema o necesitás una evaluación?</h4>
@@ -170,11 +170,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <Link href={`/blog/${post.slug}`} key={post.id} className="group cursor-pointer block bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
                   <div className="aspect-video overflow-hidden relative bg-slate-100">
                     {post.cover_image_url ? (
-                      <Image 
-                        src={post.cover_image_url} 
-                        alt={post.title} 
-                        fill 
-                        className="object-cover transition-transform duration-500 group-hover:scale-105" 
+                      <Image
+                        src={post.cover_image_url}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 transition-transform duration-500 group-hover:scale-105" />
