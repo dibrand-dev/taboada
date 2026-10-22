@@ -277,7 +277,7 @@ export default async function BlogPage({
             </p>
             <a 
               className="inline-flex items-center gap-4 bg-[var(--color-primary)] text-white px-12 py-5 text-[12px] tracking-[0.1em] uppercase font-bold font-sans hover:bg-[var(--color-primary-container)] transition-all group opacity-100 translate-y-0" 
-              href="https://wa.me/5491176600234" 
+              href="https://wa.me/5491133710022" 
               target="_blank" 
               rel="noopener noreferrer"
             >

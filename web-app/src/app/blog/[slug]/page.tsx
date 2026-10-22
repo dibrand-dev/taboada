@@ -154,7 +154,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="mt-16 p-8 md:p-12 bg-blue-50 rounded-2xl text-center">
           <h4 className="font-serif text-2xl md:text-3xl text-[#1a365d] mb-4">¿Tenés dudas sobre este tema o necesitás una evaluación?</h4>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">La prevención es fundamental. Agendá una consulta para que podamos evaluar tu caso de forma personalizada.</p>
-          <a href="https://wa.me/5491176600234" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#1C96C5] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-[#167a9f] hover:shadow-lg transition-all hover:-translate-y-1">
+          <a href="https://wa.me/5491133710022" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#1C96C5] text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-[#167a9f] hover:shadow-lg transition-all hover:-translate-y-1">
             Solicitar una consulta
           </a>
         </div>
@@ -212,7 +212,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <p className="font-sans text-body-lg text-white/80 mb-10 max-w-xl mx-auto">
             Agenda hoy una consulta integral y descubre cómo la tecnología médica de vanguardia puede transformar tu día a día.
           </p>
-          <a href="https://wa.me/5491176600234" target="_blank" rel="noopener noreferrer" className="bg-white text-[#115565] px-12 py-5 font-bold text-label-caps uppercase hover:bg-[#b1ecff] transition-all transform hover:scale-105 shadow-xl inline-block text-center tracking-widest">
+          <a href="https://wa.me/5491133710022" target="_blank" rel="noopener noreferrer" className="bg-white text-[#115565] px-12 py-5 font-bold text-label-caps uppercase hover:bg-[#b1ecff] transition-all transform hover:scale-105 shadow-xl inline-block text-center tracking-widest">
             Agendar consulta
           </a>
         </div>
