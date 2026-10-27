@@ -100,8 +100,8 @@ export default async function BlogPage({
       <header className="relative w-full h-[600px] md:h-[819px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEWoesSwp5ldyPPQB7QNqTDrLSpqjcmL6ige9SCRp3JMvcaGjmNQD6VP85zC1I188AU9_nnL1AsBfePSi5rC8dCsIYZwZdp6iEqdq8fsfgF0C8VNQiGIyZUCj64BworhJ3G1ETIcI3L-1dRcY4vTZeImKiSzj3Bqaxhz-xq98iIVh2I7sq7RMnD9jL3yasAN0ERDT6fiCe1UvkJo6v1Uff39z1JrjXbRIFOlCImVmOpcCQsXlXjn_C"
-            alt="Hero background"
+            src="/hero-blog.jpg"
+            alt="Centro de Conocimiento y Blog"
             fill
             className="object-cover"
             priority
